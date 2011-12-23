@@ -34,7 +34,8 @@ package uk.co.turingatemyhamster
  * associated vertices.
  * This, in effect, hides the underlying structure of the vertices and edges, letting us describe all common graph
  * operations purely in terms of the application-domain values. Implementors are free to represent the graph in terms
- * of a graph over some other types `V'` and `E'` and a bijective mapping `Iv:V->V'`, `Ie:E->E'`.
+ * of a graph over some other types `V'` and `E'` and a bijective mapping
+ * <code>I<sub>v</sub>:V->V'`, `I<sub>e</sub>:E->E'</code>.
  *
  * The graph structure described so far is a binary, directed graph. The incidence range is an ordered pair.
  * If the graph is binary and undirected, then the incidence range is an unordered bag of cardinality 2.
