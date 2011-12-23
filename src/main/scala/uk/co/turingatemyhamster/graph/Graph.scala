@@ -17,7 +17,7 @@ package uk.co.turingatemyhamster.graph
  * of people who phone each other, there are many graphs to be had by filtering the phonecalls by time of day,
  * date range, call length. However, from the point of view of the application, it probably makes sense to use the same
  * vertex and edge application-domain instances in these distinct graphs.
- * 
+ *
  * To support this, the `Graph` API uses type-classes to expose the graph structure, distinct from the graph, vertex or
  * edge types themselves.
  *

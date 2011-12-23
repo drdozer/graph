@@ -161,46 +161,6 @@
                             <assembleDirectory>target</assembleDirectory>
                             <generateRepository>false</generateRepository>
                             <programs>
-                                <program>
-                                    <mainClass>com.peppyresearch.peppyDb.tool.UploadGtf</mainClass>
-                                    <name>upload_gtf</name>
-                                </program>
-                                <program>
-                                    <mainClass>com.peppyresearch.peppyDb.tool.UploadFasta</mainClass>
-                                    <name>upload_fasta</name>
-                                </program>
-                                <program>
-                                    <mainClass>com.peppyresearch.peppyDb.tool.CreatePeppyDb</mainClass>
-                                    <name>create_peppy_db</name>
-                                </program>
-                                <program>
-                                    <mainClass>com.peppyresearch.peppyDb.tool.UploadPeppyReport</mainClass>
-                                    <name>upload_peppy_report</name>
-                                </program>
-                                <program>
-                                    <mainClass>com.peppyresearch.peppyDb.tool.ExportMatchesAsBed</mainClass>
-                                    <name>export_matches_as_bed</name>
-                                </program>
-                                <program>
-                                    <mainClass>com.peppyresearch.peppyDb.tool.ExportSingletonMatchesAsBed</mainClass>
-                                    <name>export_singleton_matches_as_bed</name>
-                                </program>
-                                <program>
-                                    <mainClass>com.peppyresearch.peppyDb.tool.ExportNonOverlappingMatchesAsBed</mainClass>
-                                    <name>export_nonoverlapping_matches_as_bed</name>
-                                </program>
-                                <program>
-                                    <mainClass>com.peppyresearch.peppyDb.tool.ExportNonOverlappingSingletonMatchesAsBed</mainClass>
-                                    <name>export_nonoverlapping_singleton_matches_as_bed</name>
-                                </program>
-                                <program>
-                                    <mainClass>com.peppyresearch.peppyDb.tool.PrintFeatureTypes</mainClass>
-                                    <name>print_feature_types</name>
-                                </program>
-                                <program>
-                                    <mainClass>com.peppyresearch.peppyDb.tool.LaunchWebapp</mainClass>
-                                    <name>launch_webapp</name>
-                                </program>
                             </programs>
                         </configuration>
                     </execution>
@@ -256,12 +216,12 @@
     <distributionManagement>
         <site>
             <id>github-project-site</id>
-            <url>gitsite:git@github.com/giddingslab/peppy-db.git</url>
+            <url>gitsite:git@github.com/drdozer/graph.git</url>
         </site>
     </distributionManagement>
 
     <scm>
-        <developerConnection>scm:git:git://github.com/giddingslab/peppy-db.git</developerConnection>
-        <url>http://github.com/giddingslab/peppy-db</url>
+        <developerConnection>scm:git:git://github.com/drdozer/graph.git</developerConnection>
+        <url>http://github.com/drdozer/graph</url>
     </scm>
 </project>
