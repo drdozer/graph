@@ -16,8 +16,10 @@ package uk.co.turingatemyhamster.graph
  * values. For example, people could be arranged into a graph by marriage, family trees, friendship. Given a graph
  * of people who phone each other, there are many graphs to be had by filtering the phonecalls by time of day,
  * date range, call length. However, from the point of view of the application, it probably makes sense to use the same
- * vertex and edge application-domain instances in these distinct graphs. To support this, the `Graph` API defines all
- * operations relative to a graph.
+ * vertex and edge application-domain instances in these distinct graphs.
+ * 
+ * To support this, the `Graph` API uses type-classes to expose the graph structure, distinct from the graph, vertex or
+ * edge types themselves.
  *
  * <h2>Maths</h2>
  *
@@ -26,32 +28,37 @@ package uk.co.turingatemyhamster.graph
  *
  * To account for this, the `Graph` type-class actually represents a slightly different structure:
  *
- *   `G = {V', E', Iv:V'->V, Ie:E'->E, V, E⊆(V⨯V) }`
+ *   `G = {V, E, incidence:E->(V⨯V) }`
  *
- * where `V'` and `E'` are the application-domain values and `Iv`, `Ie` are
- * (injective) interpretations that map down to every vertex/edge in the underlying graph.
- *
- * Given this structure, we can now define the graph API purely in terms of `V'` and `E'`, hiding the choice of `V` and
- * `E` as an implementation detail. In particular, this induces a mapping:
- *
- * `incidence:E'->(V'⨯V') s.t. incidence(a) = (f,t) => Ie(a) = (Iv(f), Iv(t))`
- *
+ * where `V` and `E` are the application-domain values and incidence is a function that maps from each `E` to the
+ * associated vertices.
  * This, in effect, hides the underlying structure of the vertices and edges, letting us describe all common graph
- * operations purely in terms of the application-domain values.
+ * operations purely in terms of the application-domain values. Implementors are free to represent the graph in terms
+ * of a graph over some other types `V'` and `E'` and a bijective mapping `Iv:V->V'`, `Ie:E->E'`.
  *
  * The graph structure described so far is a binary, directed graph. The incidence range is an ordered pair.
- * If the graph is binary, undirected, then the incidence range is an unordered bag of cardinality 2.
+ * If the graph is binary and undirected, then the incidence range is an unordered bag of cardinality 2.
  * If it is binary, undirected and without loops, then incidence range is sets of cardinality 2.
  * In a hypergraph, each edge can connect any number of vertices.
  * Here, the incidence type is a list of vertices (a bag, in the case of an un-directed graph).
- * Pseudographs require the incidence function to allow multiple edges to map to the same value.
+ * Pseudographs require the incidence function to allow multiple edges to map to the same incident vertices.
  * True graphs require the incidence function to be bijective, so that it uniquely associates edges with their incident
  * vertices.
  *
- * So, a generalized graph is some vertices, edges, and an incidence type, together with some restriction on the
- * incidence function.
+ * So, a generalized graph is some vertices, edges, and an incidence function and type, together with some restrictions
+ * on the incidence function.
  *
  * `G = {Inc, V, E, incidence: E->Inc[V]}`
+ *
+ * Lastly, some graphs are infinite in extent while others are finite. For the finite case, it makes sense for the
+ * vertex and edge sets to be represented directly by `Set` datastructures. For infinite representations, there are
+ * other alternatives.
+ * Sometimes it will be a cheep operation to see if a value is in one of these sets. Here, representing the collection
+ * by its indicator function is sufficient.
+ * Other times, it may be possible to iterate over members in some order, given that the iteration may not terminate.
+ * Here, an `Iterable` is appropriate.
+ * It's worth noting in passing that `Set` is both `Iterable` and has an `apply()` method that is an indicator
+ * function.
  *
  * @author Matthew Pocock
  */
@@ -62,7 +69,6 @@ package object Graph {
    */
   type QueryableMembershipGraph[G, V, E] = Graph[G, V, E] {
 
-    /** Membership of the collection types can be queried. */
     type Col[A] <: A => Boolean
 
   }
@@ -77,7 +83,6 @@ package object Graph {
    */
   type NavigableGraph[G, V, E] = Graph[G, V, E] {
 
-    /** In a navigable graph, the vertices and edges associated with each other can be iterated over. */
     type Col[A] <: Iterable[A]
   }
 }
