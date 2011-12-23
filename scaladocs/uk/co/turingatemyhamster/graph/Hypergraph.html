@@ -23,15 +23,15 @@
       <span class="kind">trait</span>
       <span class="symbol"> 
         <span class="name">Hypergraph</span>
-        <span class="tparams">[<span name="G">G</span>, <span name="V">V</span>, <span name="E">E</span>]</span>
-        <span class="result"> extends <a name="uk.co.turingatemyhamster.graph.DirectedGraph" class="extype" href="DirectedGraph.html">DirectedGraph</a>[G, V, E]</span>
+        <span class="tparams">[<span name="V">V</span>, <span name="E">E</span>]</span>
+        <span class="result"> extends <a name="uk.co.turingatemyhamster.graph.DirectedGraph" class="extype" href="DirectedGraph.html">DirectedGraph</a>[V, E]</span>
       </span>
       </h4>
       
           <div class="fullcommenttop" id="comment"><div class="comment cmt"><p>A hypergraph.
 </p></div><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
-          <div class="superTypes hiddenContent"><a name="uk.co.turingatemyhamster.graph.DirectedGraph" class="extype" href="DirectedGraph.html">DirectedGraph</a>[G, V, E], <a name="uk.co.turingatemyhamster.graph.Graph" class="extype" href="Graph.html">Graph</a>[G, V, E], AnyRef, <span name="scala.Any" class="extype">Any</span></div>
+          <div class="superTypes hiddenContent"><a name="uk.co.turingatemyhamster.graph.DirectedGraph" class="extype" href="DirectedGraph.html">DirectedGraph</a>[V, E], <a name="uk.co.turingatemyhamster.graph.Graph" class="extype" href="Graph.html">Graph</a>[V, E], AnyRef, <span name="scala.Any" class="extype">Any</span></div>
         </div></div>
         
 
@@ -87,59 +87,59 @@
         <div class="values members" id="values">
               <h3>Abstract Value Members</h3>
               <ol><li visbl="pub" name="uk.co.turingatemyhamster.graph.Graph#edges" data-isabs="true">
-      <a id="edges(G):Col[E]"></a>
+      <a id="edges:Col[E]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol"> 
         <span class="name">edges</span>
         
-        <span class="params">(<span name="g">g: G</span>)</span><span class="result">: Col[E]</span>
+        <span class="result">: Col[E]</span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>abstract </dd><dt>Definition Classes</dt><dd><a name="uk.co.turingatemyhamster.graph.Graph" class="extype" href="Graph.html">Graph</a></dd></dl></div>
     </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.DirectedGraph#edgesForVertex" data-isabs="true">
-      <a id="edgesForVertex(G,V,Int):Col[E]"></a>
+      <a id="edgesForVertex(V,Int):Col[E]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol"> 
         <span class="name">edgesForVertex</span>
         
-        <span class="params">(<span name="g">g: G</span>, <span name="v">v: V</span>, <span name="i">i: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: Col[E]</span>
+        <span class="params">(<span name="v">v: V</span>, <span name="i">i: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: Col[E]</span>
       </span>
       </h4>
       <p class="shortcomment cmt">Edges associated with a vertex, given some index into the incidence structure.</p><div class="fullcomment"><div class="comment cmt"><p>Edges associated with a vertex, given some index into the incidence structure.
-</p></div><dl class="paramcmts block"><dt class="param">g</dt><dd class="cmt"><p>graph</p></dd><dt class="param">v</dt><dd class="cmt"><p>vertex</p></dd><dt class="param">i</dt><dd class="cmt"><p>index into the incidence of v in g</p></dd><dt>returns</dt><dd class="cmt"><p>all edges that contain <code>v</code> at position <code>i</code> in their incidence
+</p></div><dl class="paramcmts block"><dt class="param">v</dt><dd class="cmt"><p>vertex</p></dd><dt class="param">i</dt><dd class="cmt"><p>index into the incidence of v in g</p></dd><dt>returns</dt><dd class="cmt"><p>all edges that contain <code>v</code> at position <code>i</code> in their incidence
 </p></dd></dl><dl class="attributes block"> <dt>Attributes</dt><dd>abstract </dd><dt>Definition Classes</dt><dd><a name="uk.co.turingatemyhamster.graph.DirectedGraph" class="extype" href="DirectedGraph.html">DirectedGraph</a></dd></dl></div>
     </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.Graph#incidence" data-isabs="true">
-      <a id="incidence(G,E):Incidence[V]"></a>
+      <a id="incidence(E):Incidence[V]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol"> 
         <span class="name">incidence</span>
         
-        <span class="params">(<span name="g">g: G</span>, <span name="e">e: E</span>)</span><span class="result">: Incidence[V]</span>
+        <span class="params">(<span name="e">e: E</span>)</span><span class="result">: Incidence[V]</span>
       </span>
       </h4>
       <p class="shortcomment cmt">The incident vertices for an edge.</p><div class="fullcomment"><div class="comment cmt"><p>The incident vertices for an edge. This is only defined for edges that are in the graph.</p></div><dl class="attributes block"> <dt>Attributes</dt><dd>abstract </dd><dt>Definition Classes</dt><dd><a name="uk.co.turingatemyhamster.graph.Graph" class="extype" href="Graph.html">Graph</a></dd></dl></div>
     </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.Graph#incidenceOption" data-isabs="true">
-      <a id="incidenceOption(G,E):Option[Incidence[V]]"></a>
+      <a id="incidenceOption(E):Option[Incidence[V]]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol"> 
         <span class="name">incidenceOption</span>
         
-        <span class="params">(<span name="g">g: G</span>, <span name="e">e: E</span>)</span><span class="result">: <span name="scala.Option" class="extype">Option</span>[Incidence[V]]</span>
+        <span class="params">(<span name="e">e: E</span>)</span><span class="result">: <span name="scala.Option" class="extype">Option</span>[Incidence[V]]</span>
       </span>
       </h4>
       <p class="shortcomment cmt">The incident vertices for an edge.</p><div class="fullcomment"><div class="comment cmt"><p>The incident vertices for an edge. <code>None</code> for edges not in the graph.</p></div><dl class="attributes block"> <dt>Attributes</dt><dd>abstract </dd><dt>Definition Classes</dt><dd><a name="uk.co.turingatemyhamster.graph.Graph" class="extype" href="Graph.html">Graph</a></dd></dl></div>
     </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.Graph#vertices" data-isabs="true">
-      <a id="vertices(G):Col[V]"></a>
+      <a id="vertices:Col[V]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol"> 
         <span class="name">vertices</span>
         
-        <span class="params">(<span name="g">g: G</span>)</span><span class="result">: Col[V]</span>
+        <span class="result">: Col[V]</span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>abstract </dd><dt>Definition Classes</dt><dd><a name="uk.co.turingatemyhamster.graph.Graph" class="extype" href="Graph.html">Graph</a></dd></dl></div>
@@ -412,9 +412,9 @@
         
 
         <div name="uk.co.turingatemyhamster.graph.DirectedGraph" class="parent">
-              <h3>Inherited from <a name="uk.co.turingatemyhamster.graph.DirectedGraph" class="extype" href="DirectedGraph.html">DirectedGraph</a>[G, V, E]</h3>
+              <h3>Inherited from <a name="uk.co.turingatemyhamster.graph.DirectedGraph" class="extype" href="DirectedGraph.html">DirectedGraph</a>[V, E]</h3>
             </div><div name="uk.co.turingatemyhamster.graph.Graph" class="parent">
-              <h3>Inherited from <a name="uk.co.turingatemyhamster.graph.Graph" class="extype" href="Graph.html">Graph</a>[G, V, E]</h3>
+              <h3>Inherited from <a name="uk.co.turingatemyhamster.graph.Graph" class="extype" href="Graph.html">Graph</a>[V, E]</h3>
             </div><div name="scala.AnyRef" class="parent">
               <h3>Inherited from AnyRef</h3>
             </div><div name="scala.Any" class="parent">

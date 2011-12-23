@@ -37,13 +37,14 @@ modify these or derive custom graph implementations.</p><p>In typical cases wher
 values. For example, people could be arranged into a graph by marriage, family trees, friendship. Given a graph
 of people who phone each other, there are many graphs to be had by filtering the phonecalls by time of day,
 date range, call length. However, from the point of view of the application, it probably makes sense to use the same
-vertex and edge application-domain instances in these distinct graphs.</p><p>To support this, the <code>Graph</code> API uses type-classes to expose the graph structure, distinct from the graph, vertex or
+vertex and edge application-domain instances in these distinct graphs.</p><p>To support this, the <code>Graph</code> API uses type-classes to expose the graph structure, distinct from the vertex or
 edge types themselves.</p><h4> Maths </h4><p>The most common mathematical definition of a graph is: <code>G = {V, E⊆(V⨯V)}</code>. However, there are many related structures
 that are sometimes called graphs, or given more specific names.</p><p>To account for this, the <code>Graph</code> type-class actually represents a slightly different structure:</p><p>  <code>G = {V, E, incidence:E-&gt;(V⨯V) }</code></p><p>where <code>V</code> and <code>E</code> are the application-domain values and incidence is a function that maps from each <code>E</code> to the
 associated vertices.
 This, in effect, hides the underlying structure of the vertices and edges, letting us describe all common graph
 operations purely in terms of the application-domain values. Implementors are free to represent the graph in terms
-of a graph over some other types <code>V'</code> and <code>E'</code> and a bijective mapping <code>Iv:V-&gt;V'</code>, <code>Ie:E-&gt;E'</code>.</p><p>The graph structure described so far is a binary, directed graph. The incidence range is an ordered pair.
+of a graph over some other types <code>V'</code> and <code>E'</code> and a bijective mapping
+<code>I<sub>v</sub>:V->V'`, `I<sub>e</sub>:E->E'</code>.</p><p>The graph structure described so far is a binary, directed graph. The incidence range is an ordered pair.
 If the graph is binary and undirected, then the incidence range is an unordered bag of cardinality 2.
 If it is binary, undirected and without loops, then incidence range is sets of cardinality 2.
 In a hypergraph, each edge can connect any number of vertices.
@@ -80,81 +81,81 @@ function.
         <div class="types members" id="types">
               <h3>Type Members</h3>
               <ol><li visbl="pub" name="uk.co.turingatemyhamster.graph.BinaryGraph" data-isabs="true">
-      <a id="BinaryGraph:BinaryGraph[G, V, E]"></a>
+      <a id="BinaryGraph:BinaryGraph[V, E]"></a>
       <h4 class="signature">
       <span class="kind">trait</span>
       <span class="symbol"> 
         <a href="BinaryGraph.html"><span class="name">BinaryGraph</span></a>
-        <span class="tparams">[<span name="G">G</span>, <span name="V">V</span>, <span name="E">E</span>]</span>
-        <span class="result"> extends DirectedGraph[G, V, E]</span>
+        <span class="tparams">[<span name="V">V</span>, <span name="E">E</span>]</span>
+        <span class="result"> extends DirectedGraph[V, E]</span>
       </span>
       </h4>
       <p class="comment cmt">A binary graph.</p>
     </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.DirectedGraph" data-isabs="true">
-      <a id="DirectedGraph:DirectedGraph[G, V, E]"></a>
+      <a id="DirectedGraph:DirectedGraph[V, E]"></a>
       <h4 class="signature">
       <span class="kind">trait</span>
       <span class="symbol"> 
         <a href="DirectedGraph.html"><span class="name">DirectedGraph</span></a>
-        <span class="tparams">[<span name="G">G</span>, <span name="V">V</span>, <span name="E">E</span>]</span>
-        <span class="result"> extends Graph[G, V, E]</span>
+        <span class="tparams">[<span name="V">V</span>, <span name="E">E</span>]</span>
+        <span class="result"> extends Graph[V, E]</span>
       </span>
       </h4>
       <p class="comment cmt">A directed graph.</p>
     </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.FiniteGraph" data-isabs="true">
-      <a id="FiniteGraph:FiniteGraph[G, V, E]"></a>
+      <a id="FiniteGraph:FiniteGraph[V, E]"></a>
       <h4 class="signature">
       <span class="kind">trait</span>
       <span class="symbol"> 
         <a href="FiniteGraph.html"><span class="name">FiniteGraph</span></a>
-        <span class="tparams">[<span name="G">G</span>, <span name="V">V</span>, <span name="E">E</span>]</span>
-        <span class="result"> extends Graph[G, V, E]</span>
+        <span class="tparams">[<span name="V">V</span>, <span name="E">E</span>]</span>
+        <span class="result"> extends Graph[V, E]</span>
       </span>
       </h4>
       <p class="comment cmt">A graph over a finite set of nodes and a finite set of edges.</p>
     </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.Graph" data-isabs="true">
-      <a id="Graph:Graph[G, V, E]"></a>
+      <a id="Graph:Graph[V, E]"></a>
       <h4 class="signature">
       <span class="kind">trait</span>
       <span class="symbol"> 
         <a href="Graph.html"><span class="name">Graph</span></a>
-        <span class="tparams">[<span name="G">G</span>, <span name="V">V</span>, <span name="E">E</span>]</span>
+        <span class="tparams">[<span name="V">V</span>, <span name="E">E</span>]</span>
         <span class="result"> extends AnyRef</span>
       </span>
       </h4>
       <p class="comment cmt">A Graph type-class.</p>
     </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.Hypergraph" data-isabs="true">
-      <a id="Hypergraph:Hypergraph[G, V, E]"></a>
+      <a id="Hypergraph:Hypergraph[V, E]"></a>
       <h4 class="signature">
       <span class="kind">trait</span>
       <span class="symbol"> 
         <a href="Hypergraph.html"><span class="name">Hypergraph</span></a>
-        <span class="tparams">[<span name="G">G</span>, <span name="V">V</span>, <span name="E">E</span>]</span>
-        <span class="result"> extends DirectedGraph[G, V, E]</span>
+        <span class="tparams">[<span name="V">V</span>, <span name="E">E</span>]</span>
+        <span class="result"> extends DirectedGraph[V, E]</span>
       </span>
       </h4>
       <p class="comment cmt">A hypergraph.</p>
     </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.package#NavigableGraph" data-isabs="false">
-      <a id="NavigableGraph:NavigableGraph[G, V, E]"></a>
+      <a id="NavigableGraph:NavigableGraph[V, E]"></a>
       <h4 class="signature">
       <span class="kind">type</span>
       <span class="symbol"> 
         <span class="name">NavigableGraph</span>
-        <span class="tparams">[<span name="G">G</span>, <span name="V">V</span>, <span name="E">E</span>]</span>
-        <span class="result"> = <a name="uk.co.turingatemyhamster.graph.Graph" class="extype" href="Graph.html">Graph</a>[G, V, E] { type Col[A] &lt;: Iterable[A] }</span>
+        <span class="tparams">[<span name="V">V</span>, <span name="E">E</span>]</span>
+        <span class="result"> = <a name="uk.co.turingatemyhamster.graph.Graph" class="extype" href="Graph.html">Graph</a>[V, E] { type Col[A] &lt;: Iterable[A] }</span>
       </span>
       </h4>
       <p class="shortcomment cmt">A graph where nodes, edges and links between these can be iterated over.</p><div class="fullcomment"><div class="comment cmt"><p>A graph where nodes, edges and links between these can be iterated over.</p><p>If a graph is finite and navigable, iteration will at some point terminate. If a graph is infinite and navigable,
 then no individual iterator is guaranteed to terminate.
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="uk.co.turingatemyhamster.graph.package" class="extype" href="package$.html">package</a></dd></dl></div>
     </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.package#QueryableMembershipGraph" data-isabs="false">
-      <a id="QueryableMembershipGraph:QueryableMembershipGraph[G, V, E]"></a>
+      <a id="QueryableMembershipGraph:QueryableMembershipGraph[V, E]"></a>
       <h4 class="signature">
       <span class="kind">type</span>
       <span class="symbol"> 
         <span class="name">QueryableMembershipGraph</span>
-        <span class="tparams">[<span name="G">G</span>, <span name="V">V</span>, <span name="E">E</span>]</span>
-        <span class="result"> = <a name="uk.co.turingatemyhamster.graph.Graph" class="extype" href="Graph.html">Graph</a>[G, V, E] { type Col[A] &lt;: A =&gt; Boolean }</span>
+        <span class="tparams">[<span name="V">V</span>, <span name="E">E</span>]</span>
+        <span class="result"> = <a name="uk.co.turingatemyhamster.graph.Graph" class="extype" href="Graph.html">Graph</a>[V, E] { type Col[A] &lt;: A =&gt; Boolean }</span>
       </span>
       </h4>
       <p class="shortcomment cmt">A graph where nodes, edges and links between these can be checked with instances to see if they are in these
@@ -162,13 +163,13 @@ collections.</p><div class="fullcomment"><div class="comment cmt"><p>A graph whe
 collections.
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="uk.co.turingatemyhamster.graph.package" class="extype" href="package$.html">package</a></dd></dl></div>
     </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.UndirectedGraph" data-isabs="true">
-      <a id="UndirectedGraph:UndirectedGraph[G, V, E]"></a>
+      <a id="UndirectedGraph:UndirectedGraph[V, E]"></a>
       <h4 class="signature">
       <span class="kind">trait</span>
       <span class="symbol"> 
         <a href="UndirectedGraph.html"><span class="name">UndirectedGraph</span></a>
-        <span class="tparams">[<span name="G">G</span>, <span name="V">V</span>, <span name="E">E</span>]</span>
-        <span class="result"> extends Graph[G, V, E]</span>
+        <span class="tparams">[<span name="V">V</span>, <span name="E">E</span>]</span>
+        <span class="result"> extends Graph[V, E]</span>
       </span>
       </h4>
       <p class="comment cmt">An undirected graph without loops.</p>

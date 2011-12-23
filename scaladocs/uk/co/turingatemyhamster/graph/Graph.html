@@ -23,13 +23,13 @@
       <span class="kind">trait</span>
       <span class="symbol"> 
         <span class="name">Graph</span>
-        <span class="tparams">[<span name="G">G</span>, <span name="V">V</span>, <span name="E">E</span>]</span>
+        <span class="tparams">[<span name="V">V</span>, <span name="E">E</span>]</span>
         <span class="result"> extends AnyRef</span>
       </span>
       </h4>
       
           <div class="fullcommenttop" id="comment"><div class="comment cmt"><p>A Graph type-class.</p><p>This supports graphs of both infinite and finite size.
-</p></div><dl class="paramcmts block"><dt class="tparam">G</dt><dd class="cmt"><p>the underlying datatype for the graph</p></dd><dt class="tparam">V</dt><dd class="cmt"><p>the vertex type</p></dd><dt class="tparam">E</dt><dd class="cmt"><p>the edge type
+</p></div><dl class="paramcmts block"><dt class="tparam">V</dt><dd class="cmt"><p>the vertex type</p></dd><dt class="tparam">E</dt><dd class="cmt"><p>the edge type
 </p></dd></dl><div class="toggleContainer block">
           <span class="toggle">Linear Supertypes</span>
           <div class="superTypes hiddenContent">AnyRef, <span name="scala.Any" class="extype">Any</span></div>
@@ -91,46 +91,46 @@
         <div class="values members" id="values">
               <h3>Abstract Value Members</h3>
               <ol><li visbl="pub" name="uk.co.turingatemyhamster.graph.Graph#edges" data-isabs="true">
-      <a id="edges(G):Col[E]"></a>
+      <a id="edges:Col[E]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol"> 
         <span class="name">edges</span>
         
-        <span class="params">(<span name="g">g: G</span>)</span><span class="result">: Col[E]</span>
+        <span class="result">: Col[E]</span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>abstract </dd></dl></div>
     </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.Graph#incidence" data-isabs="true">
-      <a id="incidence(G,E):Incidence[V]"></a>
+      <a id="incidence(E):Incidence[V]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol"> 
         <span class="name">incidence</span>
         
-        <span class="params">(<span name="g">g: G</span>, <span name="e">e: E</span>)</span><span class="result">: Incidence[V]</span>
+        <span class="params">(<span name="e">e: E</span>)</span><span class="result">: Incidence[V]</span>
       </span>
       </h4>
       <p class="shortcomment cmt">The incident vertices for an edge.</p><div class="fullcomment"><div class="comment cmt"><p>The incident vertices for an edge. This is only defined for edges that are in the graph.</p></div><dl class="attributes block"> <dt>Attributes</dt><dd>abstract </dd></dl></div>
     </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.Graph#incidenceOption" data-isabs="true">
-      <a id="incidenceOption(G,E):Option[Incidence[V]]"></a>
+      <a id="incidenceOption(E):Option[Incidence[V]]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol"> 
         <span class="name">incidenceOption</span>
         
-        <span class="params">(<span name="g">g: G</span>, <span name="e">e: E</span>)</span><span class="result">: <span name="scala.Option" class="extype">Option</span>[Incidence[V]]</span>
+        <span class="params">(<span name="e">e: E</span>)</span><span class="result">: <span name="scala.Option" class="extype">Option</span>[Incidence[V]]</span>
       </span>
       </h4>
       <p class="shortcomment cmt">The incident vertices for an edge.</p><div class="fullcomment"><div class="comment cmt"><p>The incident vertices for an edge. <code>None</code> for edges not in the graph.</p></div><dl class="attributes block"> <dt>Attributes</dt><dd>abstract </dd></dl></div>
     </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.Graph#vertices" data-isabs="true">
-      <a id="vertices(G):Col[V]"></a>
+      <a id="vertices:Col[V]"></a>
       <h4 class="signature">
       <span class="kind">def</span>
       <span class="symbol"> 
         <span class="name">vertices</span>
         
-        <span class="params">(<span name="g">g: G</span>)</span><span class="result">: Col[V]</span>
+        <span class="result">: Col[V]</span>
       </span>
       </h4>
       <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>abstract </dd></dl></div>
