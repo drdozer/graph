@@ -28,7 +28,39 @@
       </span>
       </h4>
       
-          <div class="fullcommenttop" id="comment"></div>
+          <div class="fullcommenttop" id="comment"><div class="comment cmt"><p>Graphs are central to many algorithms and to solving many real-world problems. This package provides an API for
+working with various families of graph representations, while maximising the freedom of implementors to implement
+graph storage and operations.</p><h4> Motivation </h4><p>In many applications of graphs, the vertices and edges represent interesting, application-domain values such as
+places and roads, proteins and interactions, people and published papers. This API seeks to recognise this from
+the outset, so that graphs are directly represented over their application-domain entities, without the need to
+modify these or derive custom graph implementations.</p><p>In typical cases where application-domain values are represented as graphs, there are many graphs for the same
+values. For example, people could be arranged into a graph by marriage, family trees, friendship. Given a graph
+of people who phone each other, there are many graphs to be had by filtering the phonecalls by time of day,
+date range, call length. However, from the point of view of the application, it probably makes sense to use the same
+vertex and edge application-domain instances in these distinct graphs.</p><p>To support this, the <code>Graph</code> API uses type-classes to expose the graph structure, distinct from the graph, vertex or
+edge types themselves.</p><h4> Maths </h4><p>The most common mathematical definition of a graph is: <code>G = {V, E⊆(V⨯V)}</code>. However, there are many related structures
+that are sometimes called graphs, or given more specific names.</p><p>To account for this, the <code>Graph</code> type-class actually represents a slightly different structure:</p><p>  <code>G = {V, E, incidence:E-&gt;(V⨯V) }</code></p><p>where <code>V</code> and <code>E</code> are the application-domain values and incidence is a function that maps from each <code>E</code> to the
+associated vertices.
+This, in effect, hides the underlying structure of the vertices and edges, letting us describe all common graph
+operations purely in terms of the application-domain values. Implementors are free to represent the graph in terms
+of a graph over some other types <code>V'</code> and <code>E'</code> and a bijective mapping <code>Iv:V-&gt;V'</code>, <code>Ie:E-&gt;E'</code>.</p><p>The graph structure described so far is a binary, directed graph. The incidence range is an ordered pair.
+If the graph is binary and undirected, then the incidence range is an unordered bag of cardinality 2.
+If it is binary, undirected and without loops, then incidence range is sets of cardinality 2.
+In a hypergraph, each edge can connect any number of vertices.
+Here, the incidence type is a list of vertices (a bag, in the case of an un-directed graph).
+Pseudographs require the incidence function to allow multiple edges to map to the same incident vertices.
+True graphs require the incidence function to be bijective, so that it uniquely associates edges with their incident
+vertices.</p><p>So, a generalized graph is some vertices, edges, and an incidence function and type, together with some restrictions
+on the incidence function.</p><p><code>G = {Inc, V, E, incidence: E-&gt;Inc[V]}</code></p><p>Lastly, some graphs are infinite in extent while others are finite. For the finite case, it makes sense for the
+vertex and edge sets to be represented directly by <code>Set</code> datastructures. For infinite representations, there are
+other alternatives.
+Sometimes it will be a cheep operation to see if a value is in one of these sets. Here, representing the collection
+by its indicator function is sufficient.
+Other times, it may be possible to iterate over members in some order, given that the iteration may not terminate.
+Here, an <code>Iterable</code> is appropriate.
+It's worth noting in passing that <code>Set</code> is both <code>Iterable</code> and has an <code>apply()</code> method that is an indicator
+function.
+</p></div></div>
         
 
       <div id="template">
@@ -102,6 +134,33 @@
       </span>
       </h4>
       <p class="comment cmt">A hypergraph.</p>
+    </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.package#NavigableGraph" data-isabs="false">
+      <a id="NavigableGraph:NavigableGraph[G, V, E]"></a>
+      <h4 class="signature">
+      <span class="kind">type</span>
+      <span class="symbol"> 
+        <span class="name">NavigableGraph</span>
+        <span class="tparams">[<span name="G">G</span>, <span name="V">V</span>, <span name="E">E</span>]</span>
+        <span class="result"> = <a name="uk.co.turingatemyhamster.graph.Graph" class="extype" href="Graph.html">Graph</a>[G, V, E] { type Col[A] &lt;: Iterable[A] }</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">A graph where nodes, edges and links between these can be iterated over.</p><div class="fullcomment"><div class="comment cmt"><p>A graph where nodes, edges and links between these can be iterated over.</p><p>If a graph is finite and navigable, iteration will at some point terminate. If a graph is infinite and navigable,
+then no individual iterator is guaranteed to terminate.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="uk.co.turingatemyhamster.graph.package" class="extype" href="package$.html">package</a></dd></dl></div>
+    </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.package#QueryableMembershipGraph" data-isabs="false">
+      <a id="QueryableMembershipGraph:QueryableMembershipGraph[G, V, E]"></a>
+      <h4 class="signature">
+      <span class="kind">type</span>
+      <span class="symbol"> 
+        <span class="name">QueryableMembershipGraph</span>
+        <span class="tparams">[<span name="G">G</span>, <span name="V">V</span>, <span name="E">E</span>]</span>
+        <span class="result"> = <a name="uk.co.turingatemyhamster.graph.Graph" class="extype" href="Graph.html">Graph</a>[G, V, E] { type Col[A] &lt;: A =&gt; Boolean }</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">A graph where nodes, edges and links between these can be checked with instances to see if they are in these
+collections.</p><div class="fullcomment"><div class="comment cmt"><p>A graph where nodes, edges and links between these can be checked with instances to see if they are in these
+collections.
+</p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="uk.co.turingatemyhamster.graph.package" class="extype" href="package$.html">package</a></dd></dl></div>
     </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.UndirectedGraph" data-isabs="true">
       <a id="UndirectedGraph:UndirectedGraph[G, V, E]"></a>
       <h4 class="signature">
