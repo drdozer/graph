@@ -18,7 +18,7 @@ package uk.co.turingatemyhamster
  * date range, call length. However, from the point of view of the application, it probably makes sense to use the same
  * vertex and edge application-domain instances in these distinct graphs.
  *
- * To support this, the `Graph` API uses type-classes to expose the graph structure, distinct from the graph, vertex or
+ * To support this, the `Graph` API uses methods to expose the graph structure, distinct from the vertex or
  * edge types themselves.
  *
  * <h2>Maths</h2>
@@ -26,16 +26,14 @@ package uk.co.turingatemyhamster
  * The most common mathematical definition of a graph is: `G = {V, E⊆(V⨯V)}`. However, there are many related structures
  * that are sometimes called graphs, or given more specific names.
  *
- * To account for this, the `Graph` type-class actually represents a slightly different structure:
+ * To account for this, the `Graph` trait actually represents a slightly different structure:
  *
  *   `G = {V, E, incidence:E->(V⨯V) }`
  *
  * where `V` and `E` are the application-domain values and incidence is a function that maps from each `E` to the
  * associated vertices.
  * This, in effect, hides the underlying structure of the vertices and edges, letting us describe all common graph
- * operations purely in terms of the application-domain values. Implementors are free to represent the graph in terms
- * of a graph over some other types `V'` and `E'` and a bijective mapping
- * <code>I<sub>v</sub>:V->V'`, `I<sub>e</sub>:E->E'</code>.
+ * operations purely in terms of the application-domain values.
  *
  * The graph structure described so far is a binary, directed graph. The incidence range is an ordered pair.
  * If the graph is binary and undirected, then the incidence range is an unordered bag of cardinality 2.
@@ -61,6 +59,12 @@ package uk.co.turingatemyhamster
  * It's worth noting in passing that `Set` is both `Iterable` and has an `apply()` method that is an indicator
  * function.
  *
+ * <h2>Implementing Graph</h2>
+ *
+ * There are some highly optimized ways to represent specific types of graphs over particular types. Implementors are
+ * encouraged to take advantage of this and to 'skin' the graph topology into the application-domain representation
+ * using MappedGraph.
+ *
  * @author Matthew Pocock
  */
 package object graph {
@@ -68,7 +72,7 @@ package object graph {
   /** A graph where nodes, edges and links between these can be checked with instances to see if they are in these
    * collections.
    */
-  type QueryableMembershipGraph[G, V, E] = Graph[G, V, E] {
+  type QueryableMembershipGraph[V, E] = Graph[V, E] {
 
     type Col[A] <: A => Boolean
 
@@ -82,8 +86,9 @@ package object graph {
    *
    * @author Matthew Pocock
    */
-  type NavigableGraph[G, V, E] = Graph[G, V, E] {
+  type NavigableGraph[V, E] = Graph[V, E] {
 
     type Col[A] <: Iterable[A]
+
   }
 }
