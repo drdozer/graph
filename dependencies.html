@@ -42,9 +42,9 @@
   
     
             <div class="xleft">
-        Last Published: 2011-12-23
+        Last Published: 2012-01-24
                       </div>
-            <div class="xright">            <a href="${project.url}">Graph</a>
+            <div class="xright">            <a href="">Graph</a>
             
   
 
@@ -197,19 +197,53 @@
 </tr>
 <tr class="a"><td>junit</td>
 <td><a class="externalLink" href="http://junit.org">junit</a></td>
-<td>4.8.1</td>
+<td>4.9</td>
 <td>jar</td>
 </tr>
-<tr class="b"><td>org.scalatest</td>
-<td><a class="externalLink" href="http://www.artima.com/scalatest/">scalatest</a></td>
-<td>1.2</td>
+<tr class="b"><td>org.scala-tools.testing</td>
+<td>scalacheck_2.9.1</td>
+<td>1.9</td>
+<td>jar</td>
+</tr>
+<tr class="a"><td>org.scalatest</td>
+<td><a class="externalLink" href="http://www.scalatest.org">scalatest_2.9.1</a></td>
+<td>1.6.3-SNAPSHOT</td>
+<td>jar</td>
+</tr>
+<tr class="b"><td>org.specs2</td>
+<td>specs2_2.9.1</td>
+<td>1.7.1</td>
 <td>jar</td>
 </tr>
 </table>
 </div>
 </div>
 <div class="section"><h2>Project Transitive Dependencies</h2>
-<p>No transitive dependencies are required for this project.</p>
+<p>The following is a list of transitive dependencies for this project. Transitive dependencies are the dependencies of the project dependencies.</p>
+<div class="section"><h3>test</h3>
+<p>The following is a list of test dependencies for this project. These dependencies are only required to compile and run unit tests for the application:</p>
+<table class="bodyTable"><tr class="a"><th>GroupId</th>
+<th>ArtifactId</th>
+<th>Version</th>
+<th>Type</th>
+</tr>
+<tr class="b"><td>org.hamcrest</td>
+<td>hamcrest-core</td>
+<td>1.1</td>
+<td>jar</td>
+</tr>
+<tr class="a"><td>org.scala-tools.testing</td>
+<td>test-interface</td>
+<td>0.5</td>
+<td>jar</td>
+</tr>
+<tr class="b"><td>org.specs2</td>
+<td>specs2-scalaz-core_2.9.1</td>
+<td>6.0.1</td>
+<td>jar</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="section"><h2>Project Dependency Graph</h2>
 <script language="javascript" type="text/javascript">
@@ -230,14 +264,15 @@
       }
 </script>
 <div class="section"><h3>Dependency Tree</h3>
-<ul><li>uk.co.turingatemyhamster:graph:jar:1.0-SNAPSHOT <img id="_245444196" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_577516360', '_245444196' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_577516360" style="display:none"><table class="bodyTable"><tr class="a"><th>Graph</th>
+<ul><li>uk.co.turingatemyhamster:graph:jar:0.1-SNAPSHOT <img id="_2091054003" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_534274993', '_2091054003' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_534274993" style="display:none"><table class="bodyTable"><tr class="a"><th>Graph</th>
 </tr>
 <tr class="b"><td><p><b>Description: </b>API for Graphs</p>
+<p><b>URL: </b><a class="externalLink" href="http://drdozer.github.com/graph">http://drdozer.github.com/graph</a></p>
 <p><b>Project License: </b><a class="externalLink" href="http://....">My License</a></p>
 </td>
 </tr>
 </table>
-</div><ul><li>org.scala-lang:scala-library:jar:2.9.1 (compile) <img id="_1201524829" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1502188410', '_1201524829' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1502188410" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - org.scala-lang:scala-library:jar:2.9.1</th>
+</div><ul><li>org.scala-lang:scala-library:jar:2.9.1 (compile) <img id="_1629522222" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1717269010', '_1629522222' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1717269010" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - org.scala-lang:scala-library:jar:2.9.1</th>
 </tr>
 <tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
 <p><b>URL: </b><a class="externalLink" href="http://www.scala-lang.org/">http://www.scala-lang.org/</a></p>
@@ -246,14 +281,14 @@
 </tr>
 </table>
 </div></li>
-<li>org.scalaz:scalaz-core_2.9.1:jar:6.0.3 (compile) <img id="_1505053312" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_844088718', '_1505053312' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_844088718" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - org.scalaz:scalaz-core_2.9.1:jar:6.0.3</th>
+<li>org.scalaz:scalaz-core_2.9.1:jar:6.0.3 (compile) <img id="_917551335" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1332906038', '_917551335' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1332906038" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - org.scalaz:scalaz-core_2.9.1:jar:6.0.3</th>
 </tr>
 <tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
 <p><b>Project License: </b>No project license is defined for this project.</p>
 </td>
 </tr>
 </table>
-</div><ul><li>org.scala-lang:scala-library:jar:2.9.1 (compile) <img id="_1976087947" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1976543878', '_1976087947' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1976543878" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - org.scala-lang:scala-library:jar:2.9.1</th>
+</div><ul><li>org.scala-lang:scala-library:jar:2.9.1 (compile) <img id="_1822130565" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1241027396', '_1822130565' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1241027396" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - org.scala-lang:scala-library:jar:2.9.1</th>
 </tr>
 <tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
 <p><b>URL: </b><a class="externalLink" href="http://www.scala-lang.org/">http://www.scala-lang.org/</a></p>
@@ -264,24 +299,89 @@
 </div></li>
 </ul>
 </li>
-<li>junit:junit:jar:4.8.1 (test) <img id="_1601084475" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_850366156', '_1601084475' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_850366156" style="display:none"><table class="bodyTable"><tr class="a"><th>JUnit</th>
+<li>junit:junit:jar:4.9 (test) <img id="_176510991" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1604595877', '_176510991' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1604595877" style="display:none"><table class="bodyTable"><tr class="a"><th>JUnit</th>
 </tr>
-<tr class="b"><td><p><b>Description: </b>JUnit is a regression testing framework written by Erich Gamma and Kent Beck. It is used by the developer who implements unit tests in Java.</p>
+<tr class="b"><td><p><b>Description: </b>JUnit is a regression testing framework written by Erich Gamma and Kent Beck.
+        It is used by the developer who implements unit tests in Java.</p>
 <p><b>URL: </b><a class="externalLink" href="http://junit.org">http://junit.org</a></p>
 <p><b>Project License: </b><a class="externalLink" href="http://www.opensource.org/licenses/cpl1.0.txt">Common Public License Version 1.0</a></p>
 </td>
 </tr>
 </table>
-</div></li>
-<li>org.scalatest:scalatest:jar:1.2 (test) <img id="_1066952330" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1307657007', '_1066952330' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1307657007" style="display:none"><table class="bodyTable"><tr class="a"><th>ScalaTest</th>
+</div><ul><li>org.hamcrest:hamcrest-core:jar:1.1 (test) <img id="_37544408" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_2028695495', '_37544408' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_2028695495" style="display:none"><table class="bodyTable"><tr class="a"><th>Hamcrest Core</th>
 </tr>
-<tr class="b"><td><p><b>Description: </b>ScalaTest is a free, open-source testing toolkit for Scala and Java programmers.</p>
-<p><b>URL: </b><a class="externalLink" href="http://www.artima.com/scalatest/">http://www.artima.com/scalatest/</a></p>
-<p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0">the Apache License, ASL Version 2.0</a></p>
+<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
+<p><b>Project License: </b><a class="externalLink" href="http://www.opensource.org/licenses/bsd-license.php">BSD style</a></p>
 </td>
 </tr>
 </table>
 </div></li>
+</ul>
+</li>
+<li>org.specs2:specs2_2.9.1:jar:1.7.1 (test) <img id="_1473127677" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1634680624', '_1473127677' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1634680624" style="display:none"><table class="bodyTable"><tr class="a"><th>specs2</th>
+</tr>
+<tr class="b"><td><p><b>Description: </b>specs2</p>
+<p><b>Project License: </b>No project license is defined for this project.</p>
+</td>
+</tr>
+</table>
+</div><ul><li>org.specs2:specs2-scalaz-core_2.9.1:jar:6.0.1 (test) <img id="_1493195127" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_708097441', '_1493195127' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_708097441" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - org.specs2:specs2-scalaz-core_2.9.1:jar:6.0.1</th>
+</tr>
+<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
+<p><b>Project License: </b>No project license is defined for this project.</p>
+</td>
+</tr>
+</table>
+</div><ul><li>org.scala-lang:scala-library:jar:2.9.1 (test) <img id="_1308693150" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1518349282', '_1308693150' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1518349282" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - org.scala-lang:scala-library:jar:2.9.1</th>
+</tr>
+<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
+<p><b>URL: </b><a class="externalLink" href="http://www.scala-lang.org/">http://www.scala-lang.org/</a></p>
+<p><b>Project License: </b><a class="externalLink" href="http://www.scala-lang.org/downloads/license.html">BSD-like</a></p>
+</td>
+</tr>
+</table>
+</div></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>org.scala-tools.testing:scalacheck_2.9.1:jar:1.9 (test) <img id="_1161867698" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_1030769535', '_1161867698' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_1030769535" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - org.scala-tools.testing:scalacheck_2.9.1:jar:1.9</th>
+</tr>
+<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
+<p><b>Project License: </b>No project license is defined for this project.</p>
+</td>
+</tr>
+</table>
+</div><ul><li>org.scala-tools.testing:test-interface:jar:0.5 (test) <img id="_1938089350" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_796229322', '_1938089350' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_796229322" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - org.scala-tools.testing:test-interface:jar:0.5</th>
+</tr>
+<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
+<p><b>Project License: </b>No project license is defined for this project.</p>
+</td>
+</tr>
+</table>
+</div></li>
+</ul>
+</li>
+<li>org.scalatest:scalatest_2.9.1:jar:1.6.3-SNAPSHOT (test) <img id="_2022827263" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_168659584', '_2022827263' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_168659584" style="display:none"><table class="bodyTable"><tr class="a"><th>ScalaTest</th>
+</tr>
+<tr class="b"><td><p><b>Description: </b>ScalaTest is a free, open-source testing toolkit for Scala and Java
+    programmers.</p>
+<p><b>URL: </b><a class="externalLink" href="http://www.scalatest.org">http://www.scalatest.org</a></p>
+<p><b>Project License: </b><a class="externalLink" href="http://www.apache.org/licenses/LICENSE-2.0">the Apache License, ASL Version 2.0</a></p>
+</td>
+</tr>
+</table>
+</div><ul><li>org.scala-lang:scala-library:jar:2.9.1 (test) <img id="_2004809798" src="./images/icon_info_sml.gif" alt="Information" onclick="toggleDependencyDetail( '_2071304516', '_2004809798' );" style="cursor: pointer;vertical-align:text-bottom;"></img><div id="_2071304516" style="display:none"><table class="bodyTable"><tr class="a"><th>Unnamed - org.scala-lang:scala-library:jar:2.9.1</th>
+</tr>
+<tr class="b"><td><p><b>Description: </b>There is currently no description associated with this project.</p>
+<p><b>URL: </b><a class="externalLink" href="http://www.scala-lang.org/">http://www.scala-lang.org/</a></p>
+<p><b>Project License: </b><a class="externalLink" href="http://www.scala-lang.org/downloads/license.html">BSD-like</a></p>
+</td>
+</tr>
+</table>
+</div></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -289,7 +389,8 @@
 </div>
 <div class="section"><h2>Licenses</h2>
 <p><b>My License: </b>Graph</p>
-<p><b>Unknown: </b>Unnamed - org.scalaz:scalaz-core_2.9.1:jar:6.0.3</p>
+<p><b>BSD style: </b>Hamcrest Core</p>
+<p><b>Unknown: </b>Unnamed - org.scala-tools.testing:scalacheck_2.9.1:jar:1.9, Unnamed - org.scala-tools.testing:test-interface:jar:0.5, Unnamed - org.scalaz:scalaz-core_2.9.1:jar:6.0.3, Unnamed - org.specs2:specs2-scalaz-core_2.9.1:jar:6.0.1, specs2</p>
 <p><b>Common Public License Version 1.0: </b>JUnit</p>
 <p><b>the Apache License, ASL Version 2.0: </b>ScalaTest</p>
 <p><b>BSD-like: </b>Unnamed - org.scala-lang:scala-library:jar:2.9.1</p>
@@ -304,16 +405,25 @@
 <th align="center">Debug</th>
 <th align="center">Sealed</th>
 </tr>
-<tr class="b"><td align="left">junit-4.8.1.jar</td>
-<td align="right">231.49 kB</td>
-<td align="right">267</td>
-<td align="right">230</td>
-<td align="right">30</td>
+<tr class="b"><td align="left">junit-4.9.jar</td>
+<td align="right">243.16 kB</td>
+<td align="right">288</td>
+<td align="right">250</td>
+<td align="right">31</td>
 <td align="center">1.5</td>
 <td align="center">debug</td>
 <td align="center">-</td>
 </tr>
-<tr class="a"><td align="left">scala-library-2.9.1.jar</td>
+<tr class="a"><td align="left">hamcrest-core-1.1.jar</td>
+<td align="right">74.85 kB</td>
+<td align="right">54</td>
+<td align="right">21</td>
+<td align="right">3</td>
+<td align="center">1.5</td>
+<td align="center">debug</td>
+<td align="center">-</td>
+</tr>
+<tr class="b"><td align="left">scala-library-2.9.1.jar</td>
 <td align="right">8.43 MB</td>
 <td align="right">5,433</td>
 <td align="right">5,370</td>
@@ -322,16 +432,34 @@
 <td align="center">debug</td>
 <td align="center">-</td>
 </tr>
-<tr class="b"><td align="left">scalatest-1.2.jar</td>
-<td align="right">1.70 MB</td>
-<td align="right">1,211</td>
-<td align="right">1,173</td>
-<td align="right">11</td>
+<tr class="a"><td align="left">scalacheck_2.9.1-1.9.jar</td>
+<td align="right">769.92 kB</td>
+<td align="right">670</td>
+<td align="right">666</td>
+<td align="right">2</td>
 <td align="center">1.5</td>
 <td align="center">debug</td>
 <td align="center">-</td>
 </tr>
-<tr class="a"><td align="left">scalaz-core_2.9.1-6.0.3.jar</td>
+<tr class="b"><td align="left">test-interface-0.5.jar</td>
+<td align="right">4.30 kB</td>
+<td align="right">12</td>
+<td align="right">11</td>
+<td align="right">1</td>
+<td align="center">1.5</td>
+<td align="center">debug</td>
+<td align="center">-</td>
+</tr>
+<tr class="a"><td align="left">scalatest_2.9.1-1.6.3-SNAPSHOT.jar</td>
+<td align="right">2.52 MB</td>
+<td align="right">1,583</td>
+<td align="right">1,545</td>
+<td align="right">11</td>
+<td align="center">1.6</td>
+<td align="center">debug</td>
+<td align="center">-</td>
+</tr>
+<tr class="b"><td align="left">scalaz-core_2.9.1-6.0.3.jar</td>
 <td align="right">4.15 MB</td>
 <td align="right">4,450</td>
 <td align="right">4,446</td>
@@ -340,7 +468,25 @@
 <td align="center">debug</td>
 <td align="center">sealed</td>
 </tr>
-<tr class="b"><th align="left">Total</th>
+<tr class="a"><td align="left">specs2-scalaz-core_2.9.1-6.0.1.jar</td>
+<td align="right">4.42 MB</td>
+<td align="right">4,425</td>
+<td align="right">4,418</td>
+<td align="right">3</td>
+<td align="center">1.5</td>
+<td align="center">debug</td>
+<td align="center">-</td>
+</tr>
+<tr class="b"><td align="left">specs2_2.9.1-1.7.1.jar</td>
+<td align="right">4.28 MB</td>
+<td align="right">3,307</td>
+<td align="right">3,250</td>
+<td align="right">24</td>
+<td align="center">1.5</td>
+<td align="center">debug</td>
+<td align="center">-</td>
+</tr>
+<tr class="a"><th align="left">Total</th>
 <th align="right">Size</th>
 <th align="right">Entries</th>
 <th align="right">Classes</th>
@@ -349,16 +495,16 @@
 <th align="center">Debug</th>
 <th align="center">Sealed</th>
 </tr>
-<tr class="a"><td align="right">4</td>
-<td align="right">14.51 MB</td>
-<td align="right">11,361</td>
-<td align="right">11,219</td>
-<td align="right">103</td>
-<td align="center">1.5</td>
-<td align="right">4</td>
+<tr class="b"><td align="right">9</td>
+<td align="right">24.87 MB</td>
+<td align="right">20,222</td>
+<td align="right">19,977</td>
+<td align="right">137</td>
+<td align="center">1.6</td>
+<td align="right">9</td>
 <td align="center">1</td>
 </tr>
-<tr class="b"><td align="right">compile: 2</td>
+<tr class="a"><td align="right">compile: 2</td>
 <td align="right">compile: 12.58 MB</td>
 <td align="right">compile: 9,883</td>
 <td align="right">compile: 9,816</td>
@@ -367,36 +513,41 @@
 <td align="right">compile: 2</td>
 <td align="center">compile: 1</td>
 </tr>
-<tr class="a"><td align="right">test: 2</td>
-<td align="right">test: 1.93 MB</td>
-<td align="right">test: 1,478</td>
-<td align="right">test: 1,403</td>
-<td align="right">test: 41</td>
+<tr class="b"><td align="right">test: 7</td>
+<td align="right">test: 12.29 MB</td>
+<td align="right">test: 10,339</td>
+<td align="right">test: 10,161</td>
+<td align="right">test: 75</td>
 <td align="center">-</td>
-<td align="right">test: 2</td>
+<td align="right">test: 7</td>
 <td align="center">-</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section"><h2>Dependency Repository Locations</h2>
-<table class="bodyTable"><tbody><tr class="b"><th align="left">Repo ID</th>
+<table class="bodyTable"><tbody><tr class="a"><th align="left">Repo ID</th>
 <th align="left">URL</th>
 <th align="center">Release</th>
 <th align="center">Snapshot</th>
 </tr>
-<tr class="a"><td align="left">ScalaToolsMaven2Repository</td>
+<tr class="b"><td align="left">ScalaToolsMaven2Repository</td>
 <td align="left"><a class="externalLink" href="http://scala-tools.org/repo-releases/">http://scala-tools.org/repo-releases/</a></td>
 <td align="center">Yes</td>
 <td align="center">Yes</td>
 </tr>
-<tr class="b"><td align="left">sonatype-snapshots</td>
+<tr class="a"><td align="left">sonatype-snapshots</td>
 <td align="left"><a class="externalLink" href="http://oss.sonatype.org/content/repositories/snapshots">http://oss.sonatype.org/content/repositories/snapshots</a></td>
 <td align="center">Yes</td>
 <td align="center">Yes</td>
 </tr>
-<tr class="a"><td align="left">scala-tools.org</td>
+<tr class="b"><td align="left">scala-tools.org</td>
 <td align="left"><a class="externalLink" href="http://nexus.scala-tools.org/content/repositories/releases">http://nexus.scala-tools.org/content/repositories/releases</a></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr class="a"><td align="left">ScalaToolsReleases</td>
+<td align="left"><a class="externalLink" href="http://nexus.scala-tools.org/content/repositories/releases/">http://nexus.scala-tools.org/content/repositories/releases/</a></td>
 <td align="center">Yes</td>
 <td align="center">Yes</td>
 </tr>
@@ -405,18 +556,28 @@
 <td align="center">Yes</td>
 <td align="center">Yes</td>
 </tr>
-<tr class="a"><td align="left">scala-tools.org snapshots</td>
+<tr class="a"><td align="left">snapshotsrepo</td>
+<td align="left"><a class="externalLink" href="http://scala-tools.org/repo-snapshots/">http://scala-tools.org/repo-snapshots/</a></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr class="b"><td align="left">scala-tools.org snapshots</td>
 <td align="left"><a class="externalLink" href="http://scala-tools.org/repo-snapshots">http://scala-tools.org/repo-snapshots</a></td>
 <td align="center">Yes</td>
 <td align="center">Yes</td>
 </tr>
-<tr class="b"><td align="left">central</td>
+<tr class="a"><td align="left">central</td>
 <td align="left"><a class="externalLink" href="http://repo1.maven.org/maven2">http://repo1.maven.org/maven2</a></td>
 <td align="center">Yes</td>
 <td align="center">-</td>
 </tr>
-<tr class="a"><td align="left">ScalaToolsMaven2SnapshotsRepository</td>
+<tr class="b"><td align="left">ScalaToolsMaven2SnapshotsRepository</td>
 <td align="left"><a class="externalLink" href="http://scala-tools.org/repo-snapshots/">http://scala-tools.org/repo-snapshots/</a></td>
+<td align="center">Yes</td>
+<td align="center">Yes</td>
+</tr>
+<tr class="a"><td align="left">ScalaToolsSnapshots</td>
+<td align="left"><a class="externalLink" href="http://nexus.scala-tools.org/content/repositories/snapshots/">http://nexus.scala-tools.org/content/repositories/snapshots/</a></td>
 <td align="center">Yes</td>
 <td align="center">Yes</td>
 </tr>
@@ -427,64 +588,145 @@
 <th align="center">ScalaToolsMaven2Repository</th>
 <th align="center">sonatype-snapshots</th>
 <th align="center">scala-tools.org</th>
+<th align="center">ScalaToolsReleases</th>
 <th align="center">sonatype-release</th>
+<th align="center">snapshotsrepo</th>
 <th align="center">scala-tools.org snapshots</th>
 <th align="center">central</th>
 <th align="center">ScalaToolsMaven2SnapshotsRepository</th>
+<th align="center">ScalaToolsSnapshots</th>
 </tr>
-<tr class="a"><td align="left">junit:junit:jar:4.8.1</td>
+<tr class="a"><td align="left">junit:junit:jar:4.9</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
-<td align="center"><a class="externalLink" href="http://oss.sonatype.org/content/repositories/releases/junit/junit/4.8.1/junit-4.8.1.jar"><img alt="Found at http://oss.sonatype.org/content/repositories/releases" src="images/icon_success_sml.gif" /></a></td>
 <td align="center">-</td>
-<td align="center"><a class="externalLink" href="http://repo1.maven.org/maven2/junit/junit/4.8.1/junit-4.8.1.jar"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center"><a class="externalLink" href="http://oss.sonatype.org/content/repositories/releases/junit/junit/4.9/junit-4.9.jar"><img alt="Found at http://oss.sonatype.org/content/repositories/releases" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a class="externalLink" href="http://repo1.maven.org/maven2/junit/junit/4.9/junit-4.9.jar"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
 <td align="center">-</td>
 </tr>
-<tr class="b"><td align="left">org.scala-lang:scala-library:jar:2.9.1</td>
+<tr class="b"><td align="left">org.hamcrest:hamcrest-core:jar:1.1</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a class="externalLink" href="http://repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.1/hamcrest-core-1.1.jar"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr class="a"><td align="left">org.scala-lang:scala-library:jar:2.9.1</td>
 <td align="center"><a class="externalLink" href="http://scala-tools.org/repo-releases//org/scala-lang/scala-library/2.9.1/scala-library-2.9.1.jar"><img alt="Found at http://scala-tools.org/repo-releases/" src="images/icon_success_sml.gif" /></a></td>
 <td align="center">-</td>
 <td align="center"><a class="externalLink" href="http://nexus.scala-tools.org/content/repositories/releases/org/scala-lang/scala-library/2.9.1/scala-library-2.9.1.jar"><img alt="Found at http://nexus.scala-tools.org/content/repositories/releases" src="images/icon_success_sml.gif" /></a></td>
+<td align="center"><a class="externalLink" href="http://nexus.scala-tools.org/content/repositories/releases//org/scala-lang/scala-library/2.9.1/scala-library-2.9.1.jar"><img alt="Found at http://nexus.scala-tools.org/content/repositories/releases/" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center"><a class="externalLink" href="http://repo1.maven.org/maven2/org/scala-lang/scala-library/2.9.1/scala-library-2.9.1.jar"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
 <td align="center">-</td>
-</tr>
-<tr class="a"><td align="left">org.scalatest:scalatest:jar:1.2</td>
-<td align="center"><a class="externalLink" href="http://scala-tools.org/repo-releases//org/scalatest/scalatest/1.2/scalatest-1.2.jar"><img alt="Found at http://scala-tools.org/repo-releases/" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center"><a class="externalLink" href="http://nexus.scala-tools.org/content/repositories/releases/org/scalatest/scalatest/1.2/scalatest-1.2.jar"><img alt="Found at http://nexus.scala-tools.org/content/repositories/releases" src="images/icon_success_sml.gif" /></a></td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center"><a class="externalLink" href="http://repo1.maven.org/maven2/org/scalatest/scalatest/1.2/scalatest-1.2.jar"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
 <td align="center">-</td>
 </tr>
-<tr class="b"><td align="left">org.scalaz:scalaz-core_2.9.1:jar:6.0.3</td>
+<tr class="b"><td align="left">org.scala-tools.testing:scalacheck_2.9.1:jar:1.9</td>
+<td align="center"><a class="externalLink" href="http://scala-tools.org/repo-releases//org/scala-tools/testing/scalacheck_2.9.1/1.9/scalacheck_2.9.1-1.9.jar"><img alt="Found at http://scala-tools.org/repo-releases/" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center"><a class="externalLink" href="http://nexus.scala-tools.org/content/repositories/releases/org/scala-tools/testing/scalacheck_2.9.1/1.9/scalacheck_2.9.1-1.9.jar"><img alt="Found at http://nexus.scala-tools.org/content/repositories/releases" src="images/icon_success_sml.gif" /></a></td>
+<td align="center"><a class="externalLink" href="http://nexus.scala-tools.org/content/repositories/releases//org/scala-tools/testing/scalacheck_2.9.1/1.9/scalacheck_2.9.1-1.9.jar"><img alt="Found at http://nexus.scala-tools.org/content/repositories/releases/" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a class="externalLink" href="http://repo1.maven.org/maven2/org/scala-tools/testing/scalacheck_2.9.1/1.9/scalacheck_2.9.1-1.9.jar"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr class="a"><td align="left">org.scala-tools.testing:test-interface:jar:0.5</td>
+<td align="center"><a class="externalLink" href="http://scala-tools.org/repo-releases//org/scala-tools/testing/test-interface/0.5/test-interface-0.5.jar"><img alt="Found at http://scala-tools.org/repo-releases/" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center"><a class="externalLink" href="http://nexus.scala-tools.org/content/repositories/releases/org/scala-tools/testing/test-interface/0.5/test-interface-0.5.jar"><img alt="Found at http://nexus.scala-tools.org/content/repositories/releases" src="images/icon_success_sml.gif" /></a></td>
+<td align="center"><a class="externalLink" href="http://nexus.scala-tools.org/content/repositories/releases//org/scala-tools/testing/test-interface/0.5/test-interface-0.5.jar"><img alt="Found at http://nexus.scala-tools.org/content/repositories/releases/" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a class="externalLink" href="http://repo1.maven.org/maven2/org/scala-tools/testing/test-interface/0.5/test-interface-0.5.jar"><img alt="Found at http://repo1.maven.org/maven2" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr class="b"><td align="left">org.scalatest:scalatest_2.9.1:jar:1.6.3-SNAPSHOT</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"><a class="externalLink" href="http://scala-tools.org/repo-snapshots//org/scalatest/scalatest_2.9.1/1.6.3-SNAPSHOT/scalatest_2.9.1-1.6.3-SNAPSHOT.jar"><img alt="Found at http://scala-tools.org/repo-snapshots/" src="images/icon_success_sml.gif" /></a></td>
+<td align="center"><a class="externalLink" href="http://scala-tools.org/repo-snapshots/org/scalatest/scalatest_2.9.1/1.6.3-SNAPSHOT/scalatest_2.9.1-1.6.3-SNAPSHOT.jar"><img alt="Found at http://scala-tools.org/repo-snapshots" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center"><a class="externalLink" href="http://scala-tools.org/repo-snapshots//org/scalatest/scalatest_2.9.1/1.6.3-SNAPSHOT/scalatest_2.9.1-1.6.3-SNAPSHOT.jar"><img alt="Found at http://scala-tools.org/repo-snapshots/" src="images/icon_success_sml.gif" /></a></td>
+<td align="center"><a class="externalLink" href="http://nexus.scala-tools.org/content/repositories/snapshots//org/scalatest/scalatest_2.9.1/1.6.3-SNAPSHOT/scalatest_2.9.1-1.6.3-SNAPSHOT.jar"><img alt="Found at http://nexus.scala-tools.org/content/repositories/snapshots/" src="images/icon_success_sml.gif" /></a></td>
+</tr>
+<tr class="a"><td align="left">org.scalaz:scalaz-core_2.9.1:jar:6.0.3</td>
 <td align="center"><a class="externalLink" href="http://scala-tools.org/repo-releases//org/scalaz/scalaz-core_2.9.1/6.0.3/scalaz-core_2.9.1-6.0.3.jar"><img alt="Found at http://scala-tools.org/repo-releases/" src="images/icon_success_sml.gif" /></a></td>
 <td align="center">-</td>
 <td align="center"><a class="externalLink" href="http://nexus.scala-tools.org/content/repositories/releases/org/scalaz/scalaz-core_2.9.1/6.0.3/scalaz-core_2.9.1-6.0.3.jar"><img alt="Found at http://nexus.scala-tools.org/content/repositories/releases" src="images/icon_success_sml.gif" /></a></td>
+<td align="center"><a class="externalLink" href="http://nexus.scala-tools.org/content/repositories/releases//org/scalaz/scalaz-core_2.9.1/6.0.3/scalaz-core_2.9.1-6.0.3.jar"><img alt="Found at http://nexus.scala-tools.org/content/repositories/releases/" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 <td align="center">-</td>
 </tr>
-<tr class="a"><th align="left">Total</th>
+<tr class="b"><td align="left">org.specs2:specs2-scalaz-core_2.9.1:jar:6.0.1</td>
+<td align="center"><a class="externalLink" href="http://scala-tools.org/repo-releases//org/specs2/specs2-scalaz-core_2.9.1/6.0.1/specs2-scalaz-core_2.9.1-6.0.1.jar"><img alt="Found at http://scala-tools.org/repo-releases/" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center"><a class="externalLink" href="http://nexus.scala-tools.org/content/repositories/releases/org/specs2/specs2-scalaz-core_2.9.1/6.0.1/specs2-scalaz-core_2.9.1-6.0.1.jar"><img alt="Found at http://nexus.scala-tools.org/content/repositories/releases" src="images/icon_success_sml.gif" /></a></td>
+<td align="center"><a class="externalLink" href="http://nexus.scala-tools.org/content/repositories/releases//org/specs2/specs2-scalaz-core_2.9.1/6.0.1/specs2-scalaz-core_2.9.1-6.0.1.jar"><img alt="Found at http://nexus.scala-tools.org/content/repositories/releases/" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr class="a"><td align="left">org.specs2:specs2_2.9.1:jar:1.7.1</td>
+<td align="center"><a class="externalLink" href="http://scala-tools.org/repo-releases//org/specs2/specs2_2.9.1/1.7.1/specs2_2.9.1-1.7.1.jar"><img alt="Found at http://scala-tools.org/repo-releases/" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center"><a class="externalLink" href="http://nexus.scala-tools.org/content/repositories/releases/org/specs2/specs2_2.9.1/1.7.1/specs2_2.9.1-1.7.1.jar"><img alt="Found at http://nexus.scala-tools.org/content/repositories/releases" src="images/icon_success_sml.gif" /></a></td>
+<td align="center"><a class="externalLink" href="http://nexus.scala-tools.org/content/repositories/releases//org/specs2/specs2_2.9.1/1.7.1/specs2_2.9.1-1.7.1.jar"><img alt="Found at http://nexus.scala-tools.org/content/repositories/releases/" src="images/icon_success_sml.gif" /></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+</tr>
+<tr class="b"><th align="left">Total</th>
 <th align="center">ScalaToolsMaven2Repository</th>
 <th align="center">sonatype-snapshots</th>
 <th align="center">scala-tools.org</th>
+<th align="center">ScalaToolsReleases</th>
 <th align="center">sonatype-release</th>
+<th align="center">snapshotsrepo</th>
 <th align="center">scala-tools.org snapshots</th>
 <th align="center">central</th>
 <th align="center">ScalaToolsMaven2SnapshotsRepository</th>
+<th align="center">ScalaToolsSnapshots</th>
 </tr>
-<tr class="b"><td align="left">4 (compile: 2, test: 2)</td>
-<td align="center">3</td>
+<tr class="a"><td align="left">9 (compile: 2, test: 7)</td>
+<td align="center">6</td>
 <td align="center">0</td>
-<td align="center">3</td>
+<td align="center">6</td>
+<td align="center">6</td>
 <td align="center">1</td>
-<td align="center">0</td>
-<td align="center">3</td>
-<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">5</td>
+<td align="center">1</td>
+<td align="center">1</td>
 </tr>
 </tbody>
 </table>
@@ -497,7 +739,7 @@
     </div>
     <div id="footer">
       <div class="xright">&#169;  
-          2011
+          2011-2012
     
           
   

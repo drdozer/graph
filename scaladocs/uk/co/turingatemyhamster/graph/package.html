@@ -37,14 +37,12 @@ modify these or derive custom graph implementations.</p><p>In typical cases wher
 values. For example, people could be arranged into a graph by marriage, family trees, friendship. Given a graph
 of people who phone each other, there are many graphs to be had by filtering the phonecalls by time of day,
 date range, call length. However, from the point of view of the application, it probably makes sense to use the same
-vertex and edge application-domain instances in these distinct graphs.</p><p>To support this, the <code>Graph</code> API uses type-classes to expose the graph structure, distinct from the vertex or
+vertex and edge application-domain instances in these distinct graphs.</p><p>To support this, the <code>Graph</code> API uses methods to expose the graph structure, distinct from the vertex or
 edge types themselves.</p><h4> Maths </h4><p>The most common mathematical definition of a graph is: <code>G = {V, E⊆(V⨯V)}</code>. However, there are many related structures
-that are sometimes called graphs, or given more specific names.</p><p>To account for this, the <code>Graph</code> type-class actually represents a slightly different structure:</p><p>  <code>G = {V, E, incidence:E-&gt;(V⨯V) }</code></p><p>where <code>V</code> and <code>E</code> are the application-domain values and incidence is a function that maps from each <code>E</code> to the
+that are sometimes called graphs, or given more specific names.</p><p>To account for this, the <code>Graph</code> trait actually represents a slightly different structure:</p><p>  <code>G = {V, E, incidence:E-&gt;(V⨯V) }</code></p><p>where <code>V</code> and <code>E</code> are the application-domain values and incidence is a function that maps from each <code>E</code> to the
 associated vertices.
 This, in effect, hides the underlying structure of the vertices and edges, letting us describe all common graph
-operations purely in terms of the application-domain values. Implementors are free to represent the graph in terms
-of a graph over some other types <code>V'</code> and <code>E'</code> and a bijective mapping
-<code>I<sub>v</sub>:V->V'`, `I<sub>e</sub>:E->E'</code>.</p><p>The graph structure described so far is a binary, directed graph. The incidence range is an ordered pair.
+operations purely in terms of the application-domain values.</p><p>The graph structure described so far is a binary, directed graph. The incidence range is an ordered pair.
 If the graph is binary and undirected, then the incidence range is an unordered bag of cardinality 2.
 If it is binary, undirected and without loops, then incidence range is sets of cardinality 2.
 In a hypergraph, each edge can connect any number of vertices.
@@ -60,7 +58,9 @@ by its indicator function is sufficient.
 Other times, it may be possible to iterate over members in some order, given that the iteration may not terminate.
 Here, an <code>Iterable</code> is appropriate.
 It's worth noting in passing that <code>Set</code> is both <code>Iterable</code> and has an <code>apply()</code> method that is an indicator
-function.
+function.</p><h4> Implementing Graph </h4><p>There are some highly optimized ways to represent specific types of graphs over particular types. Implementors are
+encouraged to take advantage of this and to 'skin' the graph topology into the application-domain representation
+using MappedGraph.
 </p></div></div>
         
 
@@ -80,7 +80,40 @@ function.
 
         <div class="types members" id="types">
               <h3>Type Members</h3>
-              <ol><li visbl="pub" name="uk.co.turingatemyhamster.graph.BinaryGraph" data-isabs="true">
+              <ol><li visbl="pub" name="uk.co.turingatemyhamster.graph.AppendEdgesToGraph" data-isabs="true">
+      <a id="AppendEdgesToGraph:AppendEdgesToGraph[G1, G2, E, I]"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="AppendEdgesToGraph.html"><span class="name">AppendEdgesToGraph</span></a>
+        <span class="tparams">[<span name="G1">G1</span>, <span name="G2">G2</span>, <span name="E">E</span>, <span name="I">I</span>]</span>
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Append edges to a graph.</p>
+    </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.AppendTriplesToGraph" data-isabs="true">
+      <a id="AppendTriplesToGraph:AppendTriplesToGraph[G1, G2, S, L, D]"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="AppendTriplesToGraph.html"><span class="name">AppendTriplesToGraph</span></a>
+        <span class="tparams">[<span name="G1">G1</span>, <span name="G2">G2</span>, <span name="S">S</span>, <span name="L">L</span>, <span name="D">D</span>]</span>
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Append triples to a graphs.</p>
+    </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.AppendVerticesToGraph" data-isabs="true">
+      <a id="AppendVerticesToGraph:AppendVerticesToGraph[G1, G2, V]"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="AppendVerticesToGraph.html"><span class="name">AppendVerticesToGraph</span></a>
+        <span class="tparams">[<span name="G1">G1</span>, <span name="G2">G2</span>, <span name="V">V</span>]</span>
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Append vertices to a graph.</p>
+    </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.BinaryGraph" data-isabs="true">
       <a id="BinaryGraph:BinaryGraph[V, E]"></a>
       <h4 class="signature">
       <span class="kind">trait</span>
@@ -102,6 +135,28 @@ function.
       </span>
       </h4>
       <p class="comment cmt">A directed graph.</p>
+    </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.EmptyGraph" data-isabs="true">
+      <a id="EmptyGraph:EmptyGraph[G]"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="EmptyGraph.html"><span class="name">EmptyGraph</span></a>
+        <span class="tparams">[<span name="G">G</span>]</span>
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Empty graph.</p>
+    </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.FiniteBinaryGraph" data-isabs="false">
+      <a id="FiniteBinaryGraph:FiniteBinaryGraph[V, E]"></a>
+      <h4 class="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <a href="FiniteBinaryGraph.html"><span class="name">FiniteBinaryGraph</span></a>
+        <span class="tparams">[<span name="V">V</span>, <span name="E">E</span>]</span>
+        <span class="result"> extends FiniteGraph[V, E] with BinaryGraph[V, E]</span>
+      </span>
+      </h4>
+      
     </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.FiniteGraph" data-isabs="true">
       <a id="FiniteGraph:FiniteGraph[V, E]"></a>
       <h4 class="signature">
@@ -124,6 +179,17 @@ function.
       </span>
       </h4>
       <p class="comment cmt">A Graph type-class.</p>
+    </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.GraphBuilder" data-isabs="true">
+      <a id="GraphBuilder:GraphBuilder[G, S, L, D]"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="GraphBuilder.html"><span class="name">GraphBuilder</span></a>
+        <span class="tparams">[<span name="G">G</span>, <span name="S">S</span>, <span name="L">L</span>, <span name="D">D</span>]</span>
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Builder for graphs from path expressions.</p>
     </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.Hypergraph" data-isabs="true">
       <a id="Hypergraph:Hypergraph[V, E]"></a>
       <h4 class="signature">
@@ -135,6 +201,17 @@ function.
       </span>
       </h4>
       <p class="comment cmt">A hypergraph.</p>
+    </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.LowPriorityTripleDsl" data-isabs="true">
+      <a id="LowPriorityTripleDsl:LowPriorityTripleDsl"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="LowPriorityTripleDsl.html"><span class="name">LowPriorityTripleDsl</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <p class="comment cmt">The basic components of the triple DSL.</p>
     </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.package#NavigableGraph" data-isabs="false">
       <a id="NavigableGraph:NavigableGraph[V, E]"></a>
       <h4 class="signature">
@@ -148,6 +225,17 @@ function.
       <p class="shortcomment cmt">A graph where nodes, edges and links between these can be iterated over.</p><div class="fullcomment"><div class="comment cmt"><p>A graph where nodes, edges and links between these can be iterated over.</p><p>If a graph is finite and navigable, iteration will at some point terminate. If a graph is infinite and navigable,
 then no individual iterator is guaranteed to terminate.
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="uk.co.turingatemyhamster.graph.package" class="extype" href="package$.html">package</a></dd></dl></div>
+    </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.PathExpr" data-isabs="false">
+      <a id="PathExpr:PathExpr[S, L, D]"></a>
+      <h4 class="signature">
+      <span class="kind">case class</span>
+      <span class="symbol"> 
+        <a href="PathExpr.html"><span class="name">PathExpr</span></a>
+        <span class="tparams">[<span name="S">+S</span>, <span name="L">+L</span>, <span name="D">+D</span>]</span>
+        <span class="params">(<span name="source">source: S</span>, <span name="label">label: L</span>, <span name="destination">destination: D</span>)</span><span class="result"> extends Product with Serializable</span>
+      </span>
+      </h4>
+      <p class="comment cmt">A path expression, which may represent many triples.</p>
     </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.package#QueryableMembershipGraph" data-isabs="false">
       <a id="QueryableMembershipGraph:QueryableMembershipGraph[V, E]"></a>
       <h4 class="signature">
@@ -162,6 +250,61 @@ then no individual iterator is guaranteed to terminate.
 collections.</p><div class="fullcomment"><div class="comment cmt"><p>A graph where nodes, edges and links between these can be checked with instances to see if they are in these
 collections.
 </p></div><dl class="attributes block"> <dt>Definition Classes</dt><dd><a name="uk.co.turingatemyhamster.graph.package" class="extype" href="package$.html">package</a></dd></dl></div>
+    </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.RemoveEdgesFromGraph" data-isabs="true">
+      <a id="RemoveEdgesFromGraph:RemoveEdgesFromGraph[G1, G2, E]"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="RemoveEdgesFromGraph.html"><span class="name">RemoveEdgesFromGraph</span></a>
+        <span class="tparams">[<span name="G1">G1</span>, <span name="G2">G2</span>, <span name="E">E</span>]</span>
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Remove edges from graph.</p>
+    </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.RemoveTriplesFromGraph" data-isabs="true">
+      <a id="RemoveTriplesFromGraph:RemoveTriplesFromGraph[G1, G2, S, L, D]"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="RemoveTriplesFromGraph.html"><span class="name">RemoveTriplesFromGraph</span></a>
+        <span class="tparams">[<span name="G1">G1</span>, <span name="G2">G2</span>, <span name="S">S</span>, <span name="L">L</span>, <span name="D">D</span>]</span>
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Remove triples from a graph.</p>
+    </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.RemoveVerticesFromGraph" data-isabs="true">
+      <a id="RemoveVerticesFromGraph:RemoveVerticesFromGraph[G1, G2, V]"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="RemoveVerticesFromGraph.html"><span class="name">RemoveVerticesFromGraph</span></a>
+        <span class="tparams">[<span name="G1">G1</span>, <span name="G2">G2</span>, <span name="V">V</span>]</span>
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <p class="comment cmt">Remove vertices from a graph.</p>
+    </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.Triple" data-isabs="true">
+      <a id="Triple:Triple[V, E]"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="Triple.html"><span class="name">Triple</span></a>
+        <span class="tparams">[<span name="V">V</span>, <span name="E">E</span>]</span>
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      <p class="comment cmt">A triple is a labelled, directed edge linking a source and destination vertex.</p>
+    </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.TripleDsl" data-isabs="true">
+      <a id="TripleDsl:TripleDsl"></a>
+      <h4 class="signature">
+      <span class="kind">trait</span>
+      <span class="symbol"> 
+        <a href="TripleDsl.html"><span class="name">TripleDsl</span></a>
+        
+        <span class="result"> extends LowPriorityTripleDsl</span>
+      </span>
+      </h4>
+      <p class="comment cmt">A DSL for expressing path expressions and their conversion into equivalent triples.</p>
     </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.UndirectedGraph" data-isabs="true">
       <a id="UndirectedGraph:UndirectedGraph[V, E]"></a>
       <h4 class="signature">
@@ -178,7 +321,43 @@ collections.
         
         
 
+        <div class="values members" id="values">
+              <h3>Value Members</h3>
+              <ol><li visbl="pub" name="uk.co.turingatemyhamster.graph.AppendTriplesToGraph" data-isabs="false">
+      <a id="AppendTriplesToGraph:AppendTriplesToGraph"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="AppendTriplesToGraph$.html"><span class="name">AppendTriplesToGraph</span></a>
         
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.FiniteBinaryGraph" data-isabs="false">
+      <a id="FiniteBinaryGraph:FiniteBinaryGraph"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="FiniteBinaryGraph$.html"><span class="name">FiniteBinaryGraph</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="uk.co.turingatemyhamster.graph.GraphBuilder" data-isabs="false">
+      <a id="GraphBuilder:GraphBuilder"></a>
+      <h4 class="signature">
+      <span class="kind">object</span>
+      <span class="symbol"> 
+        <a href="GraphBuilder$.html"><span class="name">GraphBuilder</span></a>
+        
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
 
         
 
