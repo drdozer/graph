@@ -34,8 +34,8 @@ object FiniteBinaryGraph {
   }
   
   implicit def appendEdges[V, E]
-  : AppendEdgesToGraph[FiniteBinaryGraph[V, E], FiniteBinaryGraph[V, E], E, FiniteBinaryGraph#Incidence[V]] = new AppendEdgesToGraph[FiniteBinaryGraph[V, E], FiniteBinaryGraph[V, E], E, FiniteBinaryGraph#Incidence[V]] {
-    def append(g: FiniteBinaryGraph[V, E], edgs: Traversable[(E, FiniteBinaryGraph#Incidence[V])]) = {
+  : AppendEdgesToGraph[FiniteBinaryGraph[V, E], FiniteBinaryGraph[V, E], E, FiniteBinaryGraph[V, E]#Incidence[V]] = new AppendEdgesToGraph[FiniteBinaryGraph[V, E], FiniteBinaryGraph[V, E], E, FiniteBinaryGraph[V, E]#Incidence[V]] {
+    def append(g: FiniteBinaryGraph[V, E], edgs: Traversable[(E, FiniteBinaryGraph[V, E]#Incidence[V])]) = {
 
       var verts = g.verts
       var incd = g.incd
