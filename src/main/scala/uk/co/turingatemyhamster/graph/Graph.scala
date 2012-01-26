@@ -28,6 +28,10 @@ trait Graph[V, E] {
   def incidenceOption(e: E): Option[Incidence[V]]
 }
 
+object Graph {
+  def empty[G](implicit eg: EmptyGraph[G]): G = eg.empty
+}
+
 /**
  * A graph over a finite set of nodes and a finite set of edges.
  * 
