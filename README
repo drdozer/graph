@@ -1,0 +1,3 @@
+A light-weight, type-class-based API for graphs.
+
+This is built as a series of maven modules. The graph-core module provides the core API and default implementations.
