@@ -42,8 +42,28 @@ class PriorityQueueSpec extends Specification {
     }
   }
 
-  "when the same item is enqueued twice under different priorities" should {
+  "when the same item is enqueued twice under different priorities (ascending)" should {
     val pq = PriorityQueue(1 -> "charlie", 2 -> "charlie")
+
+    "dequeue to a pair consisting of" in {
+      val (pa, q) = pq.dequeue
+
+      "the item" in {
+        pa._2 must_== "charlie"
+      }
+
+      "the highest priority" in {
+        pa._1 must_== 2
+      }
+
+      "the empty queue" in {
+        q must_== PriorityQueue[Int, String]()
+      }
+    }
+  }
+
+  "when the same item is enqueued twice under different priorities (descending)" should {
+    val pq = PriorityQueue(2 -> "charlie", 1 -> "charlie")
 
     "dequeue to a pair consisting of" in {
       val (pa, q) = pq.dequeue

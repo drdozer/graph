@@ -27,23 +27,28 @@ trait PriorityQueue[P, A] {
 object PriorityQueue {
   
   def apply[P, A](pas: (P, A)*)(implicit pOrd: Ordering[P], aOrd: Ordering[A]): PriorityQueue[P, A] =
-    pas.foldLeft(new PQ[P, A](SortedSet()(new Ordering[(P, A)] {
-      val paOrd = Ordering.Tuple2[P, A]
-      def compare(x: (P, A), y: (P, A)) = if(aOrd.equiv(x._2, y._2)) 0 else paOrd.compare(x, y)
-    })))(_ enqueue _)
+    pas.foldLeft(new PQ[P, A](SortedSet(), Map()) : PriorityQueue[P, A])(_ enqueue _)
 
-  private case class PQ[P, A](q: SortedSet[(P, A)])
+  private case class PQ[P, A](pa: SortedSet[(P, A)], ap: Map[A, P])(implicit pOrd: Ordering[P])
     extends PriorityQueue[P, A]
   {
     def dequeue = {
-      val last = q.lastKey
-      (last, copy(q = q - last))
+      val last = pa.lastKey
+      (last, copy(pa = pa - last, ap = ap - last._2))
     }
 
-    def enqueue(pa: (P, A)) = {
-      copy(q = q + pa)
+    def enqueue(pair: (P, A)) = {
+      val a = pair._2
+      ap get a match {
+        case Some(p) if pOrd.gt(pair._1, p) =>
+          copy(pa = pa - (p -> a) + pair, ap = ap + pair.swap)
+        case Some(_) =>
+          this
+        case None =>
+          copy(pa = pa + pair, ap = ap + pair.swap)
+      }
     }
 
-    def isEmpty = q.isEmpty
+    def isEmpty = pa.isEmpty
   }
 }
