@@ -1,11 +1,16 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>uk.co.turingatemyhamster</groupId>
     <artifactId>graph</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>0.1-SNAPSHOT</version>
     <name>Graph</name>
     <description>API for Graphs</description>
     <inceptionYear>2011</inceptionYear>
+    <url>http://drdozer.github.com/graph</url>
 
     <developers>
         <developer>
@@ -89,51 +94,88 @@
             <version>6.0.3</version>
         </dependency>
 
-        <!-- Test -->
+        <!-- test -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.8.1</version>
+            <version>4.9</version>
             <scope>test</scope>
         </dependency>
-        <!--<dependency>-->
-        <!--<groupId>org.scala-tools.testing</groupId>-->
-        <!--<artifactId>specs_${scala.version}</artifactId>-->
-        <!--<version>1.</version>-->
-        <!--<scope>test</scope>-->
-        <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.specs2</groupId>
+            <artifactId>specs2_2.9.1</artifactId>
+            <version>1.7.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.scala-tools.testing</groupId>
+            <artifactId>scalacheck_2.9.1</artifactId>
+            <version>1.9</version>
+            <scope>test</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.scalatest</groupId>
-            <artifactId>scalatest</artifactId>
-            <version>1.2</version>
+            <artifactId>scalatest_${scala.version}</artifactId>
+            <version>1.6.3-SNAPSHOT</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
 
     <build>
-        <sourceDirectory>src/main/scala</sourceDirectory>
-        <testSourceDirectory>src/test/scala</testSourceDirectory>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.scala-tools</groupId>
+                    <artifactId>maven-scala-plugin</artifactId>
+                    <version>2.15.2</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.0.2</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
         <plugins>
             <plugin>
                 <groupId>org.scala-tools</groupId>
                 <artifactId>maven-scala-plugin</artifactId>
-                <version>2.15.0</version>
                 <executions>
                     <execution>
+                        <id>scala-compile-first</id>
+                        <phase>process-resources</phase>
                         <goals>
+                            <goal>add-source</goal>
                             <goal>compile</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>scala-test-compile</id>
+                        <phase>process-test-resources</phase>
+                        <goals>
                             <goal>testCompile</goal>
                         </goals>
-                        <configuration>
-                            <args>
-                                <arg>-make:transitive</arg>
-                                <arg>-dependencyfile</arg>
-                                <arg>${project.build.directory}/.scala_dependencies</arg>
-                            </args>
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -146,27 +188,33 @@
                     <includes>
                         <include>**/*Test.*</include>
                         <include>**/*Suite.*</include>
+                        <include>**/*Unit.*</include>
+                        <include>**/*Spec.*</include>
                     </includes>
                 </configuration>
             </plugin>
-            <!--<plugin>-->
-                <!--<groupId>org.codehaus.mojo</groupId>-->
-                <!--<artifactId>appassembler-maven-plugin</artifactId>-->
-                <!--<version>1.1.1</version>-->
-                <!--<executions>-->
-                    <!--<execution>-->
-                        <!--<phase>package</phase>-->
-                        <!--<goals><goal>assemble</goal></goals>-->
-                        <!--<configuration>-->
-                            <!--<assembleDirectory>target</assembleDirectory>-->
-                            <!--<generateRepository>false</generateRepository>-->
-                            <!--<programs>-->
-                            <!--</programs>-->
-                        <!--</configuration>-->
-                    <!--</execution>-->
-                <!--</executions>-->
-            <!--</plugin>-->
-            <plugin>
+            <!--<plugin>>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>appassembler-maven-plugin</artifactId>
+                <version>1.1.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals><goal>assemble</goal></goals>
+                        <configuration>
+                            <assembleDirectory>target</assembleDirectory>
+                            <generateRepository>false</generateRepository>
+                            <programs>
+                                <program>
+                                    <mainClass>uk.co.turingatemyhamster.graphvizs.tool.SomeApp</mainClass>
+                                    <name>some_app</name>
+                                </program>
+                            </programs>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin -->
+            <!-- plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>2.1.1</version>
@@ -179,9 +227,8 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin -->
         </plugins>
-
         <extensions>
             <extension>
                 <groupId>org.apache.maven.scm</groupId>
@@ -199,8 +246,6 @@
                 <version>0.4-SNAPSHOT</version>
             </extension>
         </extensions>
-
-
     </build>
 
     <reporting>
