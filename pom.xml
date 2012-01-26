@@ -11,6 +11,11 @@
     <description>API for Graphs</description>
     <inceptionYear>2011</inceptionYear>
     <url>http://drdozer.github.com/graph</url>
+    <packaging>pom</packaging>
+
+    <modules>
+      <module>graph-core</module>
+    </modules>
 
     <developers>
         <developer>
@@ -81,6 +86,7 @@
         </pluginRepository>
     </pluginRepositories>
 
+    <dependencyManagement>
     <dependencies>
         <dependency>
             <groupId>org.scala-lang</groupId>
@@ -123,6 +129,7 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    </dependencyManagement>
 
     <build>
 
