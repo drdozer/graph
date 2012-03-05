@@ -1,5 +1,7 @@
 package uk.co.turingatemyhamster
 
+import graph.algorithms.Neighbourhood
+
 /**
  * Graphs are central to many algorithms and to solving many real-world problems. This package provides an API for
  * working with various families of graph representations, while maximising the freedom of implementors to implement
@@ -67,7 +69,7 @@ package uk.co.turingatemyhamster
  *
  * @author Matthew Pocock
  */
-package object graph {
+package object graph extends Neighbourhood {
 
   /** A graph where nodes, edges and links between these can be checked with instances to see if they are in these
    * collections.

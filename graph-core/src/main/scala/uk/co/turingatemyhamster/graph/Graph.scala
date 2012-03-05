@@ -30,6 +30,7 @@ trait Graph[V, E] {
 
 object Graph {
   def empty[G](implicit eg: EmptyGraph[G]): G = eg.empty
+  implicit def asMutable[G](g: G): MutableGraph[G] = new MutableGraph(g)
 }
 
 /**

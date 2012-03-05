@@ -17,9 +17,17 @@ class FiniteBinaryGraph[V, E] private (protected val verts: Set[V],
 
   def incidence(e: E) = incd(e)
 
-  def edgesWhereVertexIsIncoming(v: V): Col[E] = vi(v)
+  def edgesWhereVertexIsIncoming(v: V): Col[E] = vi get v match {
+    case None if verts contains v => Set()
+    case None => throw new NoSuchElementException("Vertex not found in graph: " + v)
+    case Some(es) => es
+  }
 
-  def edgesWhereVertexIsOutgoing(v: V): Col[E] = vo(v)
+  def edgesWhereVertexIsOutgoing(v: V): Col[E] = vo get v match {
+    case None if verts contains v => Set()
+    case None => throw new NoSuchElementException("Vertex not found in graph: " + v)
+    case Some(es) => es
+  }
 }
 
 object FiniteBinaryGraph {

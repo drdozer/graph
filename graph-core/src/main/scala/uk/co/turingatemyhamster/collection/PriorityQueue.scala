@@ -1,6 +1,8 @@
 package uk.co.turingatemyhamster.collection
 
 import collection.immutable.SortedSet
+import scalaz._
+import Scalaz._
 
 /**
  * A priority queue, that maintains a number of unique items in priority order and supports efficient removal of the
@@ -26,10 +28,13 @@ trait PriorityQueue[P, A] {
 
 object PriorityQueue {
   
-  def apply[P, A](pas: (P, A)*)(implicit pOrd: Ordering[P], aOrd: Ordering[A]): PriorityQueue[P, A] =
+  def apply[P, A](pas: (P, A)*)(implicit pOrd: Order[P], aOrd: Order[A]): PriorityQueue[P, A] = {
+    implicit val pO = pOrd.toScalaOrdering
+    implicit val aO = aOrd.toScalaOrdering
     pas.foldLeft(new PQ[P, A](SortedSet(), Map()) : PriorityQueue[P, A])(_ enqueue _)
+  }
 
-  private case class PQ[P, A](pa: SortedSet[(P, A)], ap: Map[A, P])(implicit pOrd: Ordering[P])
+  private case class PQ[P, A](pa: SortedSet[(P, A)], ap: Map[A, P])(implicit pOrd: Order[P])
     extends PriorityQueue[P, A]
   {
     def dequeue = {
@@ -40,7 +45,7 @@ object PriorityQueue {
     def enqueue(pair: (P, A)) = {
       val a = pair._2
       ap get a match {
-        case Some(p) if pOrd.gt(pair._1, p) =>
+        case Some(p) if (pair._1 >= p) =>
           copy(pa = pa - (p -> a) + pair, ap = ap + pair.swap)
         case Some(_) =>
           this

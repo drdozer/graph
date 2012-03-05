@@ -4,6 +4,9 @@ import org.junit.runner.RunWith
 import org.specs2.mutable.Specification
 import org.specs2.runner.JUnitRunner
 
+import scalaz._
+import Scalaz._
+
 /**
  * Specification for priority queues.
  *

@@ -41,6 +41,12 @@ object GraphBuilder {
 
 }
 
+
+final class MutableGraph[G1](g1: G1) {
+  def appendVertices[G2, V](vs: Traversable[V])(implicit a: AppendVerticesToGraph[G1, G2, V]): G2 = a.append(g1, vs)
+  def appendEdges[G2, E, I](es: Traversable[(E, I)])(implicit a: AppendEdgesToGraph[G1, G2, E, I]): G2 = a.append(g1, es)
+}
+
 /**
  * Append vertices to a graph.
  *
