@@ -57,7 +57,7 @@ class NeighbourhoodSpec extends Specification {
           implicitly[Order[Int]],
           implicitly[Monoid[Int]])
 
-        val pathOrdering = Orderoid.reverse(implicitly[Order[List[Int]]])
+        val pathOrder = Orderoid.reverse(implicitly[Order[List[Int]]])
       }
 
       val path = visit(

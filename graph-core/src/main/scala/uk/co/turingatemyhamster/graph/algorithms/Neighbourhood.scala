@@ -34,7 +34,7 @@ trait Neighbourhood {
     }
 
     val startP = path.startAt(start)
-    step(PriorityQueue[W, P](path.cost(startP) -> startP)(Orderoid.reverse(path.costOrderoid), path.pathOrdering), Set(start))
+    step(PriorityQueue[W, P](path.cost(startP) -> startP)(Orderoid.reverse(path.costOrderoid), path.pathOrder), Set(start))
 
   }
 
@@ -145,5 +145,5 @@ trait PathSpace[V, E, P, C] {
    *
    * @return  an `Order` over paths of type `P`
    */
-  def pathOrdering: Order[P]
+  def pathOrder: Order[P]
 }
