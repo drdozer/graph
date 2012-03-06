@@ -1,6 +1,7 @@
 package uk.co.turingatemyhamster.graph
 
 import algorithms.{PathSpace, Orderoid}
+import Orderoid.listOrder
 import org.junit.runner.RunWith
 import org.specs2.runner.JUnitRunner
 import org.specs2.mutable.Specification
@@ -31,18 +32,6 @@ class NeighbourhoodSpec extends Specification {
             "d" -> (3 -> 4),
             "e" -> (3 -> 5),
             "f" -> (4 -> 2))
-
-      implicit def listOrder[A](implicit oa: Order[A]): Order[List[A]] = new Order[List[A]] {
-        def order(x: List[A], y: List[A]) = (x, y) match {
-          case (Nil, Nil) => Ordering.EQ
-          case (as, Nil) => Ordering.GT
-          case (Nil, bs) => Ordering.LT
-          case (a::as, b::bs) => oa.order(a, b) match {
-            case Ordering.EQ => order(as, bs)
-            case o => o
-          }
-        }
-      }
 
       implicit val listPath: PathSpace[Int, String, List[Int], Int] = new PathSpace[Int, String, List[Int], Int] {
         def startAt(start: Int) = start :: Nil

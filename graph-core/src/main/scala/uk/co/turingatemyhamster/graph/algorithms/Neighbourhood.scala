@@ -70,6 +70,20 @@ object Orderoid {
   private def doubleMult(a: Double, b: Double): Double = a * b
   private val doubleMultSemiG = new SG(doubleMult)
 
+
+  implicit def listOrder[A](implicit oa: Order[A]): Order[List[A]] = new Order[List[A]] {
+    def order(x: List[A], y: List[A]) = (x, y) match {
+      case (Nil, Nil) => Ordering.EQ
+      case (as, Nil) => Ordering.GT
+      case (Nil, bs) => Ordering.LT
+      case (a::as, b::bs) => oa.order(a, b) match {
+        case Ordering.EQ => order(as, bs)
+        case o => o
+      }
+    }
+  }
+
+
   /**
    * Orderoid for doubles x >= 1.
    */
