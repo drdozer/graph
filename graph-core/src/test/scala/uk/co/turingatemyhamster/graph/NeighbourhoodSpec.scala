@@ -60,10 +60,10 @@ class NeighbourhoodSpec extends Specification {
         val pathOrdering = Orderoid.reverse(implicitly[Order[List[Int]]])
       }
 
-      val path = visit[FiniteBinaryGraph[Int, String], Int, String, List[Int], Int](
-        g, 1,
-        _.edgesWhereVertexIsIncoming(_),
-        _.incidence(_).asInstanceOf[Tuple2[Int, Int]]._2)
+      val path = visit(
+        1,
+        g.edgesWhereVertexIsIncoming(_: Int),
+        g.incidence(_: String).asInstanceOf[Tuple2[Int, Int]]._2)
 
       println(path.mkString(" ; "))
 

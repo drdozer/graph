@@ -16,7 +16,7 @@ import Scalaz._
 
 trait Neighbourhood {
 
-  def visit[G <: Graph[V, E], V, E, P, W](g: G, start: V, fromVertex: (G, V) => Traversable[E], toVertex: (Graph[V, E], E) => V)
+  def visit[V, E, P, W](start: V, fromVertex: V => Traversable[E], toVertex: E => V)
                        (implicit path: PathSpace[V, E, P, W]): Stream[P] = {
     
     def step(pq: PriorityQueue[W, P], seen: Set[V]): Stream[P] = {
@@ -24,7 +24,7 @@ trait Neighbourhood {
       else {
         val ((_, best), rest) = pq.dequeue
         val last = path.last(best)
-        val evs = fromVertex(g, last) map (e => e -> toVertex(g, e)) filter (ev => !seen(ev._2))
+        val evs = fromVertex(last) map (e => e -> toVertex(e)) filter (ev => !seen(ev._2))
         val (nextQ, nextSeen) = evs.foldLeft((rest, seen)) { case ((q, s), (e, v)) =>
           val p = path.extend(best, e, v)
           (q.enqueue(path.cost(p), p), s + v)
