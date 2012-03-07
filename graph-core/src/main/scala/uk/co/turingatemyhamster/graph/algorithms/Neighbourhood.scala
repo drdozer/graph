@@ -24,17 +24,22 @@ trait Neighbourhood {
       else {
         val ((_, best), rest) = pq.dequeue
         val last = path.last(best)
-        val evs = fromVertex(last) map (e => e -> toVertex(e)) filter (ev => !seen(ev._2))
-        val (nextQ, nextSeen) = evs.foldLeft((rest, seen)) { case ((q, s), (e, v)) =>
-          val p = path.extend(best, e, v)
-          (q.enqueue(path.cost(p), p), s + v)
+        if(seen(last)) {
+          step(rest, seen)
+        } else {
+          val newSeen = seen + last
+          val evs = fromVertex(last) map (e => e -> toVertex(e)) filter (ev => !newSeen(ev._2))
+          val nextQ = evs.foldLeft(rest) { case (q, (e, v)) =>
+            val p = path.extend(best, e, v)
+            q.enqueue(path.cost(p), p)
+          }
+          Stream.cons(best, step(nextQ, newSeen))
         }
-        Stream.cons(best, step(nextQ, nextSeen))
       }
     }
 
     val startP = path.startAt(start)
-    step(PriorityQueue[W, P](path.cost(startP) -> startP)(Orderoid.reverse(path.costOrderoid), path.pathOrder), Set(start))
+    step(PriorityQueue[W, P](path.cost(startP) -> startP)(Orderoid.reverse(path.costOrderoid), path.pathOrder), Set())
 
   }
 
